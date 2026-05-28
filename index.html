@@ -15,7 +15,7 @@
 
     body{
       font-family:'Happy Monkey', cursive;
-      background:#f8fbff;
+      background:#090816;
       color:#0f172a;
       overflow-x:hidden;
     }
@@ -85,17 +85,16 @@
   overflow:hidden;
 
   background:
-linear-gradient(
-  rgba(15,10,35,0.62),
-  rgba(20,10,45,0.72)
-),
-url('bg.jpg');
-      background:
-      radial-gradient(circle at top right, rgba(0,140,255,.18), transparent 30%),
-      radial-gradient(circle at bottom left, rgba(0,140,255,.12), transparent 35%),
-      linear-gradient(135deg,#ffffff 0%,#eef6ff 45%,#f8fbff 100%);
-    }
+  linear-gradient(
+    rgba(8,6,20,0.82),
+    rgba(20,8,35,0.88)
+  ),
+  url('bg.jpg');
 
+  background-size:cover;
+  background-position:center;
+}
+  
     .bg-grid{
       position:absolute;
       inset:0;
@@ -195,6 +194,8 @@ url('bg.jpg');
 
     section{
       padding:110px 8%;
+      position:relative;
+z-index:2;
     }
 
     .section-header{
@@ -210,7 +211,7 @@ url('bg.jpg');
     }
 
     .section-header p{
-      color:#64748b;
+     color:rgba(255,255,255,.72);
       line-height:1.7;
       font-size:18px;
     }
@@ -222,7 +223,7 @@ url('bg.jpg');
     }
 
     .card{
-      background:white;
+      background:rgba(20,20,35,.88);
       border-radius:28px;
       padding:36px;
       border:1px solid #e5edf6;
@@ -250,12 +251,12 @@ url('bg.jpg');
     }
 
     .card p{
-      color:#64748b;
+      color:rgba(255,255,255,.72);
       line-height:1.7;
     }
 
     .about{
-      background:white;
+      background:#0f1020;
       position:relative;
       overflow:hidden;
     }

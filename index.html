@@ -25,22 +25,35 @@
     }
 
     header{
-      width:100%;
-      padding:24px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:fixed;
-      top:0;
-      left:0;
-      z-index:1000;
-      backdrop-filter:blur(12px);
-      background:rgba(255,255,255,0.75);
-      border-bottom:1px solid rgba(0,0,0,0.06);
-    }
+  width:100%;
+  padding:24px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(10,10,15,.92),
+    rgba(20,20,30,.88)
+  );
+
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,.25);
+}
 
     .logo{
       font-family:'Bubblegum Sans', cursive;
+      color:white;
       font-size:20px;
       font-weight:900;
       letter-spacing:2px;
@@ -48,14 +61,14 @@
 
     nav a{
       text-decoration:none;
-      color:#0f172a;
+      color:white;
       margin-left:28px;
       font-weight:700;
       transition:.2s;
     }
 
     nav a:hover{
-      color:#008cff;
+      color:#38bdf8;
     }
 
     .hero{

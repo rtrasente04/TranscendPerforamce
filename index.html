@@ -1,86 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRANSCEND PERFORMANCE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transcend Performance</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: white;
-      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    header {
+      width: 100%;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 18px;
+    }
+
+    nav a {
+      margin-left: 24px;
+      color: #111827;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #008cff;
     }
 
     .hero {
-      padding: 120px 20px;
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 50px;
+      padding: 80px 8%;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(0, 140, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #ffffff, #f5f9ff);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #eaf6ff;
+      color: #008cff;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: 60px;
-      margin-bottom: 10px;
+      font-size: clamp(46px, 7vw, 82px);
+      line-height: 0.95;
+      margin: 0;
+      letter-spacing: -2px;
     }
 
-    p {
+    .hero p {
       font-size: 20px;
-      color: #bdbdbd;
-      max-width: 700px;
-      margin: auto;
+      line-height: 1.6;
+      color: #4b5563;
+      max-width: 620px;
+      margin-top: 24px;
+    }
+
+    .buttons {
+      margin-top: 34px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      background: white;
-      color: black;
+      padding: 15px 28px;
+      border-radius: 999px;
+      font-weight: 800;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+      margin-right: 12px;
     }
 
-    .section {
-      padding: 80px 20px;
+    .primary {
+      background: #008cff;
+      color: white;
+      box-shadow: 0 15px 35px rgba(0, 140, 255, 0.28);
+    }
+
+    .secondary {
+      color: #111827;
+      border: 1px solid #cbd5e1;
+      background: white;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-card {
+      background: white;
+      border-radius: 34px;
+      padding: 35px;
+      box-shadow: 0 30px 80px rgba(0, 40, 90, 0.18);
+      border: 1px solid #e5eef8;
+      position: relative;
+    }
+
+    .image-card::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      background: radial-gradient(circle, rgba(0, 140, 255, 0.22), transparent 60%);
+      z-index: -1;
+      border-radius: 40px;
+    }
+
+    .image-card img {
+      width: 100%;
+      max-width: 330px;
+      border-radius: 24px;
+      display: block;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 50px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: #64748b;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
     }
 
     .card {
-      background: #1c1c1c;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
       padding: 30px;
-      border-radius: 16px;
-      max-width: 600px;
-      margin: 20px auto;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #008cff;
+      box-shadow: 0 24px 60px rgba(0, 140, 255, 0.12);
+    }
+
+    .card span {
+      color: #008cff;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .about {
+      background: #f8fbff;
+    }
+
+    .contact-box {
+      max-width: 760px;
+      margin: auto;
+      background: #0f172a;
+      color: white;
+      border-radius: 30px;
+      padding: 50px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .contact-box a {
+      color: #38bdf8;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .disclaimer {
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 35px 8%;
+      text-align: center;
+    }
+
+    footer {
+      padding: 30px 8%;
+      text-align: center;
+      color: #64748b;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        margin-bottom: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="hero">
-    <h1>TRANSCEND PERFORMANCE</h1>
-    <p>
-     Powered by TranscendRX
-    </p>
+  <header>
+    <div class="logo">TRANSCEND PERFORMANCE</div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <a href="#" class="btn">Learn More</a>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="badge">POWERED BY TRANSCENDRX</div>
+        <h1>Premium Performance Optimization.</h1>
+        <p>
+          A clean, modern performance and wellness platform built around quality sourcing,
+          disciplined optimization, and a premium research-focused experience.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary" href="#products">View Products</a>
+          <a class="btn secondary" href="#contact">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-card">
+          <img src="vial.jpg" alt="TranscendRX product vial">
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="section-heading">
+        <h2>Product Categories</h2>
+        <p>
+          Built for customers looking for a clean, professional, and streamlined way to explore
+          performance-focused research products.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <span>01</span>
+          <h3>Recovery</h3>
+          <p>Research-focused products commonly associated with recovery support and repair pathways.</p>
+        </div>
+
+        <div class="card">
+          <span>02</span>
+          <h3>Performance</h3>
+          <p>Compounds aligned with endurance, output, energy, and optimization research.</p>
+        </div>
+
+        <div class="card">
+          <span>03</span>
+          <h3>Wellness</h3>
+          <p>Products selected around vitality, longevity, and overall wellness optimization.</p>
+        </div>
+
+        <div class="card">
+          <span>04</span>
+          <h3>Metabolic</h3>
+          <p>Research products related to body composition, metabolic pathways, and lifestyle goals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-heading">
+        <h2>Modern, clean, and performance-driven.</h2>
+        <p>
+          Transcend Performance is designed to feel clinical, premium, and trustworthy while
+          staying connected to the TranscendRX product identity.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <h2>Contact</h2>
+        <p>
+          For product availability, questions, or order information, reach out directly.
+        </p>
+        <p>
+          Instagram: <a href="#">@yourhandle</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="disclaimer">
+    Products and information are provided for research and educational purposes only.
+    This website does not provide medical advice, diagnosis, or treatment.
   </div>
 
-  <div class="section">
-    <div class="card">
-      <h2>About</h2>
-      <p>
-        Built for performance, recovery, and optimization.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <p>
-        Instagram: @yourhandle
-      </p>
-    </div>
-  </div>
+  <footer>
+    © 2026 Transcend Performance. Powered by TranscendRX.
+  </footer>
 
 </body>
 </html>

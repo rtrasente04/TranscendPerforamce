@@ -255,125 +255,74 @@
         margin: 0 10px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 60px;
-      }
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 8%;
+  background:
+    linear-gradient(135deg, #f8fbff 0%, #eef6ff 45%, #ffffff 100%);
+}
 
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 950px;
+}
 
-      .btn {
-        margin-bottom: 12px;
-      }
-    }
-  </style>
-</head>
+.hero h1 {
+  font-size: clamp(70px, 10vw, 140px);
+  line-height: .88;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -5px;
+  color: #0f172a;
+}
 
-<body>
+.hero p {
+  max-width: 760px;
+  margin: 30px auto 0;
+  font-size: 22px;
+  line-height: 1.7;
+  color: #475569;
+}
 
-  <header>
-    <div class="logo">TRANSCEND PERFORMANCE</div>
-    <nav>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+.badge {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: rgba(0, 140, 255, 0.12);
+  border: 1px solid rgba(0, 140, 255, 0.2);
+  color: #008cff;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  box-shadow: 0 10px 40px rgba(0,140,255,.12);
+}
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="badge">POWERED BY TRANSCENDRX</div>
-        <h1>Premium Performance Optimization.</h1>
-        <p>
-          A clean, modern performance and wellness platform built around quality sourcing,
-          disciplined optimization, and a premium research-focused experience.
-        </p>
+.bg-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: rgba(0, 140, 255, 0.13);
+  filter: blur(120px);
+  border-radius: 50%;
+  top: -180px;
+  right: -120px;
+}
 
-        <div class="buttons">
-          <a class="btn primary" href="#products">View Products</a>
-          <a class="btn secondary" href="#contact">Contact Us</a>
-        </div>
-      </div>
-
-      <div class="hero-image">
-        <div class="image-card">
-          <img src="vial.jpg" alt="TranscendRX product vial">
-        </div>
-      </div>
-    </section>
-
-    <section id="products">
-      <div class="section-heading">
-        <h2>Product Categories</h2>
-        <p>
-          Built for customers looking for a clean, professional, and streamlined way to explore
-          performance-focused research products.
-        </p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <span>01</span>
-          <h3>Recovery</h3>
-          <p>Research-focused products commonly associated with recovery support and repair pathways.</p>
-        </div>
-
-        <div class="card">
-          <span>02</span>
-          <h3>Performance</h3>
-          <p>Compounds aligned with endurance, output, energy, and optimization research.</p>
-        </div>
-
-        <div class="card">
-          <span>03</span>
-          <h3>Wellness</h3>
-          <p>Products selected around vitality, longevity, and overall wellness optimization.</p>
-        </div>
-
-        <div class="card">
-          <span>04</span>
-          <h3>Metabolic</h3>
-          <p>Research products related to body composition, metabolic pathways, and lifestyle goals.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="section-heading">
-        <h2>Modern, clean, and performance-driven.</h2>
-        <p>
-          Transcend Performance is designed to feel clinical, premium, and trustworthy while
-          staying connected to the TranscendRX product identity.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="contact-box">
-        <h2>Contact</h2>
-        <p>
-          For product availability, questions, or order information, reach out directly.
-        </p>
-        <p>
-          Instagram: <a href="#">@yourhandle</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <div class="disclaimer">
-    Products and information are provided for research and educational purposes only.
-    This website does not provide medical advice, diagnosis, or treatment.
-  </div>
-
-  <footer>
-    © 2026 Transcend Performance. Powered by TranscendRX.
-  </footer>
-
-</body>
-</html>
+.bg-glow2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(0, 140, 255, 0.08);
+  filter: blur(120px);
+  border-radius: 50%;
+  bottom: -180px;
+  left: -120px;
+}

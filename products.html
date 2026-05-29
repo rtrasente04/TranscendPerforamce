@@ -111,10 +111,28 @@
     }
 
     .product-card:hover{
-      transform:translateY(-7px);
-      border-color:#d946ef;
-      box-shadow:0 25px 65px rgba(217,70,239,.14);
-    }
+  transform:translateY(-7px);
+  border-color:#d946ef;
+  box-shadow:0 25px 65px rgba(217,70,239,.14);
+}
+
+.product-image{
+  width:220px;
+  height:220px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 20px;
+  filter:drop-shadow(0 20px 35px rgba(0,0,0,.18));
+  transition:.3s ease;
+}
+
+.product-card:hover .product-image{
+  transform:translateY(-8px) scale(1.05);
+}
+
+.disclaimer{
+  padding:40px 8%;
+}
 
     .product-card h3{
       font-size:28px;
@@ -202,10 +220,10 @@
     <h2>Client Favorites</h2>
     <p class="category-intro">Most-requested products.</p>
     <div class="grid">
-      <div class="product-card"><span class="tag">FAVORITE</span><h3>Retatrutide</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
-      <div class="product-card"><span class="tag">FAVORITE</span><h3>GHK-Cu</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
-      <div class="product-card"><span class="tag">FAVORITE</span><h3>GLOW</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
-      <div class="product-card"><span class="tag">FAVORITE</span><h3>Testosterone Enanthate</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
+      <div class="product-card"><img src="images/reta.png" class="product-image"><span class="tag">FAVORITE</span><h3>Retatrutide</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
+      <div class="product-card"><img src="images/ghkcu.png" class="product-image"><span class="tag">FAVORITE</span><h3>GHK-Cu</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
+      <div class="product-card"><img src="images/glow.png" class="product-image"><span class="tag">FAVORITE</span><h3>GLOW</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
+      <div class="product-card"><img src="images/teste.png" class="product-image"><span class="tag">FAVORITE</span><h3>Testosterone Enanthate</h3><a class="btn" href="index.html#contact">Ask Availability</a></div>
     </div>
   </section>
 

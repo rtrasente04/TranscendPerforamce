@@ -464,6 +464,82 @@ details{
 </section>
 
 </main>
+    <script>
+const minusBtn = document.querySelector(".quantity-box button:first-child");
+const plusBtn = document.querySelector(".quantity-box button:last-child");
+const quantityNumber = document.querySelector(".quantity-box span");
+const addCartBtn = document.querySelector(".add-cart");
+const cartCount = document.querySelector(".cart-icon small");
+
+let quantity = 1;
+
+function updateQuantity(){
+    quantityNumber.textContent = quantity;
+}
+
+minusBtn.addEventListener("click", function(){
+    if(quantity > 1){
+        quantity--;
+        updateQuantity();
+    }
+});
+
+plusBtn.addEventListener("click", function(){
+    if(quantity < 9){
+        quantity++;
+        updateQuantity();
+    }
+});
+
+function updateCartCount(){
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce(function(total, item){
+        return total + item.quantity;
+    }, 0);
+
+    cartCount.textContent = totalItems;
+}
+
+addCartBtn.addEventListener("click", function(){
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const product = {
+        name: "Retatrutide",
+        dose: "10mg",
+        package: document.querySelectorAll(".selector select")[1].value,
+        quantity: quantity,
+        image: "red-cap-reta-bg-removed.png"
+    };
+
+    const existingItem = cart.find(function(item){
+        return item.name === product.name &&
+               item.dose === product.dose &&
+               item.package === product.package;
+    });
+
+    if(existingItem){
+        existingItem.quantity += product.quantity;
+
+        if(existingItem.quantity > 9){
+            existingItem.quantity = 9;
+        }
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+
+    addCartBtn.textContent = "✓ Added To Cart";
+
+    setTimeout(function(){
+        addCartBtn.textContent = "🛒 Add To Cart";
+    }, 1200);
+});
+
+updateQuantity();
+updateCartCount();
+</script>
 
 </body>
 </html>

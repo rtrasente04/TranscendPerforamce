@@ -1,0 +1,103 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR humangrowthhormone.html -->
+
+<title>Human Growth Hormone | Transcend Performance</title>
+
+<img src="red-cap-humangrowthhormone-bg-removed.png" alt="Human Growth Hormone vial">
+
+<h1>Human Growth Hormone® (HGH)</h1>
+
+<p class="product-description">
+    Human Growth Hormone® (HGH) is commonly researched for growth hormone support,
+    recovery, body composition, performance, and wellness-focused applications.
+</p>
+
+<p class="product-description">
+    Each vial contains 10 IU of Human Growth Hormone® and is supplied in a sterile
+    multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports growth hormone research</li>
+    <li>Supports recovery-focused applications</li>
+    <li>Supports body composition goals</li>
+    <li>Supports performance and wellness research</li>
+    <li>Convenient 10 IU multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$30</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>10 IU</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="30">Single Vial</option>
+            <option value="125">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is Human Growth Hormone?</summary>
+    <p>Human Growth Hormone (HGH) is commonly researched for growth hormone support, recovery, body composition, and performance-focused applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One 10 IU sterile multi-dose vial of Human Growth Hormone®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>10 IU</span>
+</div>
+
+<div class="detail-card">
+    <strong>Volume</strong>
+    <span>3ml Multi-Dose Vial</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Growth & Body Composition</span>
+</div>
+
+const product = {
+    name: "Human Growth Hormone",
+    price: "$" + packageSelect.value,
+    dose: "10 IU",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-humangrowthhormone-bg-removed.png"
+};

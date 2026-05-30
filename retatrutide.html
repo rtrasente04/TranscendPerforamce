@@ -37,7 +37,11 @@ body{
 .product-image img{
     max-width:760px;
     width:100%;
-    filter:drop-shadow(0 35px 30px rgba(0,0,0,.35));
+    filter:
+        brightness(.9)
+        contrast(1.05)
+        drop-shadow(0 45px 28px rgba(0,0,0,.45));
+
     animation:float 4s ease-in-out infinite;
 }
 
@@ -221,18 +225,124 @@ details{
     .product-details{
         grid-template-columns:1fr;
     }
+    .vial-shadow{
+    width:260px;
+    height:34px;
+    margin:-20px auto 0;
+    background:radial-gradient(
+        ellipse,
+        rgba(0,0,0,.45),
+        transparent 70%
+    );
+    filter:blur(6px);
+}
 }
 </style>
+    .site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 45px;
+    color:white;
+    background:rgba(2, 10, 30, .42);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.logo-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:1.6rem;
+    background:linear-gradient(135deg, #ff4b6e, #2f70ff);
+}
+
+.logo-text{
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:1.4rem;
+}
+
+.logo-sub{
+    font-size:.75rem;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    display:flex;
+    gap:34px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:.85rem;
+}
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    font-size:1.5rem;
+}
+
+.cart-icon{
+    position:relative;
+}
+
+.cart-icon small{
+    position:absolute;
+    top:-10px;
+    right:-12px;
+    background:#dce7ff;
+    color:#061225;
+    border-radius:50%;
+    font-size:.7rem;
+    padding:2px 6px;
+}
 </head>
 
 <body>
+<header class="site-header">
+    <div class="logo-wrap">
+        <div class="logo-mark">T</div>
+        <div>
+            <div class="logo-text">TRANSCEND</div>
+            <div class="logo-sub">PERFORMANCE</div>
+        </div>
+    </div>
 
+    <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="products.html">PEPTIDES</a>
+        <a href="products.html#injectables">INJECTABLES / OILS</a>
+        <a href="index.html#about">ABOUT US</a>
+        <a href="index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="header-icons">
+        <span>⌕</span>
+        <span class="cart-icon">🛒<small>0</small></span>
+    </div>
+</header>
 <main class="product-page">
 
 <section class="product-container">
 
 <div class="product-image">
     <img src="red-cap-reta-bg-removed.png" alt="Retatrutide vial">
+    <div class="vial-shadow"></div>
 </div>
 
 <div class="product-info">

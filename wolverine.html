@@ -1,0 +1,104 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR wolverine.html -->
+
+<title>Wolverine | Transcend Performance</title>
+
+<img src="red-cap-wolverine-bg-removed.png" alt="Wolverine vial">
+
+<h1>Wolverine®</h1>
+
+<p class="product-description">
+    Wolverine® is a research blend containing BPC-157® and TB500®,
+    commonly researched for recovery, tissue support, mobility,
+    inflammation management, and regenerative applications.
+</p>
+
+<p class="product-description">
+    Each vial contains a total of 10mg of Wolverine® and is supplied
+    in a sterile multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports recovery-focused applications</li>
+    <li>Supports tissue repair research</li>
+    <li>Supports mobility and flexibility</li>
+    <li>Supports regenerative studies</li>
+    <li>Convenient 10mg multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$65</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>10mg</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="65">Single Vial</option>
+            <option value="400">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is Wolverine?</summary>
+    <p>Wolverine® is a research blend combining BPC-157® and TB500®, commonly researched for recovery, tissue support, and regenerative applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One sterile multi-dose vial containing a total of 10mg of Wolverine®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>10mg Total</span>
+</div>
+
+<div class="detail-card">
+    <strong>Blend</strong>
+    <span>BPC-157® + TB500®</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Recovery & Wellness</span>
+</div>
+
+const product = {
+    name: "Wolverine",
+    price: "$" + packageSelect.value,
+    dose: "10mg",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-wolverine-bg-removed.png"
+};

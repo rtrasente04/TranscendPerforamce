@@ -1,0 +1,103 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR ss31.html -->
+
+<title>SS-31 | Transcend Performance</title>
+
+<img src="red-cap-ss31-bg-removed.png" alt="SS-31 vial">
+
+<h1>SS-31®</h1>
+
+<p class="product-description">
+    SS-31® is a mitochondria-targeting peptide commonly researched for
+    cellular energy production, recovery, performance, and wellness-focused applications.
+</p>
+
+<p class="product-description">
+    Each vial contains 10mg of SS-31® and is supplied in a sterile
+    multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports mitochondrial research</li>
+    <li>Supports recovery-focused applications</li>
+    <li>Supports cellular energy production studies</li>
+    <li>Supports performance and wellness research</li>
+    <li>Convenient 10mg multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$80</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>10mg</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="80">Single Vial</option>
+            <option value="465">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is SS-31?</summary>
+    <p>SS-31 is a mitochondria-targeting peptide commonly researched for cellular energy production, recovery, performance, and wellness-focused applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One 10mg sterile multi-dose vial of SS-31®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>10mg</span>
+</div>
+
+<div class="detail-card">
+    <strong>Volume</strong>
+    <span>3ml Multi-Dose Vial</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Recovery & Wellness</span>
+</div>
+
+const product = {
+    name: "SS-31",
+    price: "$" + packageSelect.value,
+    dose: "10mg",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-ss31-bg-removed.png"
+};

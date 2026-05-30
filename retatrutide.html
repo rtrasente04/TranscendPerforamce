@@ -166,7 +166,7 @@ body{
 
 .product-controls{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr auto;
+    grid-template-columns:1fr 1fr 1fr 1fr;
     gap:15px;
     align-items:end;
     border-top:1px solid rgba(255,255,255,.25);
@@ -220,6 +220,18 @@ select option{
     background:rgba(255,255,255,.12);
     color:white;
     cursor:pointer;
+}
+    .price-display{
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:12px;
+    background:rgba(255,255,255,.12);
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
 }
 
 .cart-row{
@@ -416,35 +428,38 @@ details{
         <li>Convenient 10mg multi-dose vial</li>
     </ul>
 
-    <div class="product-controls">
+   <div class="product-controls">
 
-        <div class="selector">
-            <label>Dose</label>
-            <select>
-                <option>10mg</option>
-            </select>
-        </div>
-
-        <div class="selector">
-            <label>Package</label>
-            <select>
-                <option>Single Vial</option>
-                <option>Box of 10</option>
-            </select>
-        </div>
-
-        <div class="quantity-wrap">
-            <label>Quantity</label>
-            <div class="quantity-box">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-            </div>
-        </div>
-
-        <button class="box-btn">Box of 10</button>
-
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display">$80</div>
     </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>10mg</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select>
+            <option>Single Vial</option>
+            <option>Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
 
     <div class="cart-row">
         <button class="add-cart">🛒 Add To Cart</button>
@@ -542,7 +557,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "Retatrutide",
-        dose: "10mg",
+        Price: "$74.99",
         package: document.querySelectorAll(".selector select")[1].value,
         quantity: quantity,
         image: "red-cap-reta-bg-removed.png"

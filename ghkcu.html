@@ -28,117 +28,337 @@ body{
     border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.logo-wrap{display:flex;align-items:center;gap:12px;}
-.logo-mark{
-    width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    font-weight:bold;font-size:1.6rem;background:linear-gradient(135deg, #ff4b6e, #2f70ff);
-}
-.logo-text{font-weight:bold;letter-spacing:2px;font-size:1.4rem;}
-.logo-sub{font-size:.75rem;letter-spacing:4px;}
-.nav-links{display:flex;gap:34px;}
-.nav-links a{color:white;text-decoration:none;font-weight:bold;font-size:.85rem;}
-.header-icons{display:flex;align-items:center;gap:22px;font-size:1.5rem;}
-.cart-icon{position:relative;}
-.cart-icon small{
-    position:absolute;top:-10px;right:-12px;background:#dce7ff;color:#061225;
-    border-radius:50%;font-size:.7rem;padding:2px 6px;
+.logo-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.product-page{max-width:1300px;margin:0 auto;padding:40px 30px 60px;}
-.product-container{display:flex;gap:55px;align-items:center;}
-.product-image{flex:1.15;text-align:center;}
+.logo-mark{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:1.6rem;
+    background:linear-gradient(135deg, #ff4b6e, #2f70ff);
+}
+
+.logo-text{
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:1.4rem;
+}
+
+.logo-sub{
+    font-size:.75rem;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    display:flex;
+    gap:34px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:.85rem;
+}
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    font-size:1.5rem;
+}
+
+.cart-icon{
+    position:relative;
+}
+
+.cart-icon small{
+    position:absolute;
+    top:-10px;
+    right:-12px;
+    background:#dce7ff;
+    color:#061225;
+    border-radius:50%;
+    font-size:.7rem;
+    padding:2px 6px;
+}
+
+.product-page{
+    max-width:1300px;
+    margin:0 auto;
+    padding:40px 30px 60px;
+}
+
+.product-container{
+    display:flex;
+    gap:55px;
+    align-items:center;
+}
+
+.product-image{
+    flex:1.15;
+    text-align:center;
+}
+
 .product-image img{
-    max-width:760px;width:100%;
-    filter:brightness(.9) contrast(1.05) drop-shadow(0 45px 28px rgba(0,0,0,.45));
+    max-width:760px;
+    width:100%;
+    filter:
+        brightness(.9)
+        contrast(1.05)
+        drop-shadow(0 45px 28px rgba(0,0,0,.45));
     animation:float 4s ease-in-out infinite;
 }
+
 .vial-shadow{
-    width:260px;height:34px;margin:-20px auto 0;
+    width:260px;
+    height:34px;
+    margin:-20px auto 0;
     background:radial-gradient(ellipse, rgba(0,0,0,.45), transparent 70%);
     filter:blur(6px);
 }
+
 @keyframes float{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-12px);}
 }
 
-.product-info{flex:.95;padding-left:45px;border-left:1px solid rgba(255,255,255,.28);}
-.product-info h1{font-size:3.4rem;margin:0 0 20px;}
-.product-description{line-height:1.7;font-size:1rem;color:#f4f4f4;}
-.benefits{
-    display:grid;grid-template-columns:1fr 1fr;gap:12px 25px;
-    padding:0;margin:25px 0;list-style:none;
+.product-info{
+    flex:.95;
+    padding-left:45px;
+    border-left:1px solid rgba(255,255,255,.28);
 }
-.benefits li::before{content:"✓";margin-right:10px;color:#ff5c7a;font-weight:bold;}
+
+.product-info h1{
+    font-size:3.4rem;
+    margin:0 0 20px;
+}
+
+.product-description{
+    line-height:1.7;
+    font-size:1rem;
+    color:#f4f4f4;
+}
+
+.benefits{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 25px;
+    padding:0;
+    margin:25px 0;
+    list-style:none;
+}
+
+.benefits li::before{
+    content:"✓";
+    margin-right:10px;
+    color:#ff5c7a;
+    font-weight:bold;
+}
 
 .product-controls{
-    display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:15px;align-items:end;
-    border-top:1px solid rgba(255,255,255,.25);padding-top:22px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:15px;
+    align-items:end;
+    border-top:1px solid rgba(255,255,255,.25);
+    padding-top:22px;
 }
-.selector label,.quantity-wrap label{display:block;margin-bottom:8px;font-weight:bold;font-size:.85rem;}
+
+.selector label,
+.quantity-wrap label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    font-size:.85rem;
+}
+
 select{
-    width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.12);color:white;
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.12);
+    color:white;
 }
-select option{color:black;}
+
+select option{
+    color:black;
+}
+
 .quantity-box{
-    display:flex;align-items:center;justify-content:space-between;
-    border:1px solid rgba(255,255,255,.35);border-radius:12px;overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:12px;
+    overflow:hidden;
 }
+
 .quantity-box button{
-    width:45px;height:46px;border:0;background:rgba(255,255,255,.12);
-    color:white;font-size:1.1rem;
+    width:45px;
+    height:46px;
+    border:0;
+    background:rgba(255,255,255,.12);
+    color:white;
+    font-size:1.1rem;
 }
-.box-btn{
-    height:48px;padding:0 18px;border-radius:12px;border:1px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.12);color:white;cursor:pointer;
+
+.price-display{
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:12px;
+    background:rgba(255,255,255,.12);
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
 }
-.cart-row{display:flex;gap:15px;margin-top:22px;}
+
+.cart-row{
+    display:flex;
+    gap:15px;
+    margin-top:22px;
+}
+
 .add-cart{
-    flex:1;padding:17px;border:none;border-radius:13px;color:white;
-    font-weight:bold;font-size:1rem;cursor:pointer;
+    flex:1;
+    padding:17px;
+    border:none;
+    border-radius:13px;
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
+    cursor:pointer;
     background:linear-gradient(90deg, #ff4b6e, #2f70ff);
 }
+
 .favorite-btn{
-    width:58px;border-radius:13px;border:1px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.14);color:white;font-size:1.4rem;cursor:pointer;
+    width:58px;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.14);
+    color:white;
+    font-size:1.4rem;
+    cursor:pointer;
 }
 
 .faq-section{
-    margin-top:55px;background:rgba(255,255,255,.62);color:#14203f;
-    border-radius:22px;padding:28px;backdrop-filter:blur(12px);
+    margin-top:55px;
+    background:rgba(255,255,255,.62);
+    color:#14203f;
+    border-radius:22px;
+    padding:28px;
+    backdrop-filter:blur(12px);
 }
-.faq-section h2{margin-top:0;font-size:1.3rem;}
+
+.faq-section h2{
+    margin-top:0;
+    font-size:1.3rem;
+}
+
 details{
-    border:1px solid rgba(20,32,63,.15);border-radius:12px;
-    padding:15px 18px;margin-bottom:10px;background:rgba(255,255,255,.55);
+    border:1px solid rgba(20,32,63,.15);
+    border-radius:12px;
+    padding:15px 18px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,.55);
 }
+
 .product-details{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:25px;
 }
+
 .detail-card{
-    background:rgba(255,255,255,.55);border:1px solid rgba(20,32,63,.12);
-    border-radius:16px;padding:18px;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(20,32,63,.12);
+    border-radius:16px;
+    padding:18px;
 }
-.detail-card strong{display:block;margin-bottom:8px;}
+
+.detail-card strong{
+    display:block;
+    margin-bottom:8px;
+}
 
 .footer{
-    margin-top:60px;padding:40px 20px;text-align:center;
+    margin-top:60px;
+    padding:40px 20px;
+    text-align:center;
     border-top:1px solid rgba(255,255,255,.12);
-    background:rgba(0,0,0,.15);backdrop-filter:blur(10px);
+    background:rgba(0,0,0,.15);
+    backdrop-filter:blur(10px);
 }
-.footer-logo{font-size:1.3rem;font-weight:bold;letter-spacing:2px;margin-bottom:15px;}
-.footer-links{display:flex;justify-content:center;gap:25px;margin-bottom:15px;flex-wrap:wrap;}
-.footer-links a{color:white;text-decoration:none;opacity:.8;}
-.footer-links a:hover{opacity:1;}
-.footer-text{opacity:.6;font-size:.9rem;}
+
+.footer-logo{
+    font-size:1.3rem;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:15px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    opacity:.8;
+}
+
+.footer-links a:hover{
+    opacity:1;
+}
+
+.footer-text{
+    opacity:.6;
+    font-size:.9rem;
+}
 
 @media(max-width:900px){
-    .product-container{flex-direction:column;}
-    .product-info{border-left:0;padding-left:0;}
-    .product-controls,.benefits,.product-details{grid-template-columns:1fr;}
-    .site-header{flex-direction:column;gap:18px;}
-    .nav-links{flex-wrap:wrap;justify-content:center;gap:16px;}
+    .product-container{
+        flex-direction:column;
+    }
+
+    .product-info{
+        border-left:0;
+        padding-left:0;
+    }
+
+    .product-controls,
+    .benefits,
+    .product-details{
+        grid-template-columns:1fr;
+    }
+
+    .site-header{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:16px;
+    }
 }
 </style>
 </head>
@@ -179,29 +399,33 @@ details{
 
 <div class="product-info">
 
-    <h1>GHK-Cu</h1>
+    <h1>GHK-Cu®</h1>
 
     <p class="product-description">
-        GHK-Cu® is a copper peptide commonly selected for wellness, recovery, skin support,
-        and overall tissue health. It is often used by clients looking to support repair,
-        appearance, and general performance optimization.
+        GHK-Cu® is a copper peptide commonly researched for skin quality,
+        tissue support, collagen production, recovery, and regenerative applications.
     </p>
 
     <p class="product-description">
-        Each vial contains 50mg of GHK-Cu® and is supplied in a sterile multi-dose vial
-        for convenient reconstitution.
+        Each vial contains 50mg of GHK-Cu® and is supplied in a sterile
+        multi-dose vial for convenient reconstitution.
     </p>
 
     <h3>Key Benefits</h3>
     <ul class="benefits">
-        <li>Supports skin health</li>
-        <li>Supports tissue repair</li>
-        <li>May support recovery</li>
-        <li>May support collagen production</li>
+        <li>Supports skin quality research</li>
+        <li>Supports collagen production</li>
+        <li>Supports tissue support</li>
+        <li>Supports recovery research</li>
         <li>Convenient 50mg multi-dose vial</li>
     </ul>
 
     <div class="product-controls">
+
+        <div class="selector">
+            <label>Price</label>
+            <div class="price-display" id="price">$80</div>
+        </div>
 
         <div class="selector">
             <label>Dose</label>
@@ -212,9 +436,9 @@ details{
 
         <div class="selector">
             <label>Package</label>
-            <select>
-                <option>Single Vial</option>
-                <option>Box of 10</option>
+            <select id="package-select">
+                <option value="40">Single Vial</option>
+                <option value="200">Box of 10</option>
             </select>
         </div>
 
@@ -226,8 +450,6 @@ details{
                 <button>+</button>
             </div>
         </div>
-
-        <button class="box-btn">Box of 10</button>
 
     </div>
 
@@ -246,7 +468,7 @@ details{
 
     <details>
         <summary>What is GHK-Cu?</summary>
-        <p>GHK-Cu is a copper peptide commonly associated with skin, recovery, and tissue-support goals.</p>
+        <p>GHK-Cu is a copper peptide studied for skin quality, tissue support, collagen production, and regenerative applications.</p>
     </details>
 
     <details>
@@ -278,7 +500,7 @@ details{
 
         <div class="detail-card">
             <strong>Category</strong>
-            <span>Wellness</span>
+            <span>Recovery & Regenerative</span>
         </div>
 
     </div>
@@ -293,6 +515,8 @@ const plusBtn = document.querySelector(".quantity-box button:last-child");
 const quantityNumber = document.querySelector(".quantity-box span");
 const addCartBtn = document.querySelector(".add-cart");
 const cartCount = document.querySelector(".cart-icon small");
+const packageSelect = document.getElementById("package-select");
+const priceDisplay = document.getElementById("price");
 
 let quantity = 1;
 
@@ -314,6 +538,10 @@ plusBtn.addEventListener("click", function(){
     }
 });
 
+packageSelect.addEventListener("change", function(){
+    priceDisplay.textContent = "$" + this.value;
+});
+
 function updateCartCount(){
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const totalItems = cart.reduce(function(total, item){
@@ -328,8 +556,9 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "GHK-Cu",
+        price: "$39.99" + packageSelect.value,
         dose: "50mg",
-        package: document.querySelectorAll(".selector select")[1].value,
+        package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,
         image: "red-cap-ghkcu-bg-removed.png"
     };

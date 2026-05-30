@@ -431,16 +431,17 @@ details{
    <div class="product-controls">
 
     <div class="selector">
-        <label>Price</label>
-        <div class="price-display">$80</div>
-    </div>
+  <label>Price</label>
+  <div class="price-display" id="price">$65</div>
+</div>
 
-    <div class="selector">
-        <label>Dose</label>
-        <select>
-            <option>10mg</option>
-        </select>
-    </div>
+<div class="selector">
+  <label>Package</label>
+  <select id="package-select">
+    <option value="65">Single Vial</option>
+    <option value="390">Box of 10</option>
+  </select>
+</div>
 
     <div class="selector">
         <label>Package</label>
@@ -609,6 +610,13 @@ updateCartCount();
         Premium Performance • Recovery • Wellness
     </p>
 </footer>
+<script>
+const packageSelect = document.getElementById('package-select');
+const priceDisplay = document.getElementById('price');
 
+packageSelect.addEventListener('change', function () {
+  priceDisplay.textContent = '$' + this.value;
+});
+</script>
 </body>
 </html>

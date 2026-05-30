@@ -1,0 +1,103 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR nad+.html -->
+
+<title>NAD+ | Transcend Performance</title>
+
+<img src="red-cap-nad+-bg-removed.png" alt="NAD+ vial">
+
+<h1>NAD+®</h1>
+
+<p class="product-description">
+    NAD+® is a coenzyme commonly researched for cellular energy production,
+    metabolic performance, wellness, and healthy aging applications.
+</p>
+
+<p class="product-description">
+    Each vial contains 100mg of NAD+® and is supplied in a sterile
+    multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports cellular energy research</li>
+    <li>Supports metabolic performance</li>
+    <li>Supports wellness-focused applications</li>
+    <li>Supports healthy aging research</li>
+    <li>Convenient 100mg multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$45</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>100mg</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="45">Single Vial</option>
+            <option value="225">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is NAD+?</summary>
+    <p>NAD+ is a coenzyme commonly researched for cellular energy production, metabolic function, wellness, and healthy aging applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One 100mg sterile multi-dose vial of NAD+®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>100mg</span>
+</div>
+
+<div class="detail-card">
+    <strong>Volume</strong>
+    <span>3ml Multi-Dose Vial</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Metabolic Performance & Wellness</span>
+</div>
+
+const product = {
+    name: "NAD+",
+    price: "$" + packageSelect.value,
+    dose: "100mg",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-nad+-bg-removed.png"
+};

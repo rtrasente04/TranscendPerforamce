@@ -1,0 +1,103 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR igf1lr3.html -->
+
+<title>IGF1-LR3 | Transcend Performance</title>
+
+<img src="red-cap-igf1lr3-bg-removed.png" alt="IGF1-LR3 vial">
+
+<h1>IGF1-LR3®</h1>
+
+<p class="product-description">
+    IGF1-LR3® is a long-acting insulin-like growth factor analog commonly researched
+    for growth signaling, recovery, performance, and body composition applications.
+</p>
+
+<p class="product-description">
+    Each vial contains 1mg of IGF1-LR3® and is supplied in a sterile
+    multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports growth factor research</li>
+    <li>Supports recovery-focused applications</li>
+    <li>Supports performance research</li>
+    <li>Supports body composition goals</li>
+    <li>Convenient 1mg multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$65</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>1mg</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="65">Single Vial</option>
+            <option value="450">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is IGF1-LR3?</summary>
+    <p>IGF1-LR3 is a long-acting insulin-like growth factor analog commonly researched for growth signaling, recovery, performance, and body composition applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One 1mg sterile multi-dose vial of IGF1-LR3®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>1mg</span>
+</div>
+
+<div class="detail-card">
+    <strong>Volume</strong>
+    <span>3ml Multi-Dose Vial</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Growth & Body Composition</span>
+</div>
+
+const product = {
+    name: "IGF1-LR3",
+    price: "$" + packageSelect.value,
+    dose: "1mg",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-igf1lr3-bg-removed.png"
+};

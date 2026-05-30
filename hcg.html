@@ -1,0 +1,103 @@
+<!-- PRODUCT-SPECIFIC VALUES FOR hcg.html -->
+
+<title>HCG | Transcend Performance</title>
+
+<img src="red-cap-hcg-bg-removed.png" alt="HCG vial">
+
+<h1>HCG®</h1>
+
+<p class="product-description">
+    HCG® (Human Chorionic Gonadotropin) is commonly researched for hormonal support,
+    metabolic wellness, and endocrine-related applications.
+</p>
+
+<p class="product-description">
+    Each vial contains 5000 IU of HCG® and is supplied in a sterile
+    multi-dose vial for convenient reconstitution.
+</p>
+
+<h3>Key Benefits</h3>
+<ul class="benefits">
+    <li>Supports hormonal wellness research</li>
+    <li>Supports endocrine function studies</li>
+    <li>Supports metabolic wellness applications</li>
+    <li>Commonly researched alongside hormone protocols</li>
+    <li>Convenient 5000 IU multi-dose vial</li>
+</ul>
+
+<div class="product-controls">
+
+    <div class="selector">
+        <label>Price</label>
+        <div class="price-display" id="price">$40</div>
+    </div>
+
+    <div class="selector">
+        <label>Dose</label>
+        <select>
+            <option>5000 IU</option>
+        </select>
+    </div>
+
+    <div class="selector">
+        <label>Package</label>
+        <select id="package-select">
+            <option value="40">Single Vial</option>
+            <option value="250">Box of 10</option>
+        </select>
+    </div>
+
+    <div class="quantity-wrap">
+        <label>Quantity</label>
+        <div class="quantity-box">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+    </div>
+
+</div>
+
+<details>
+    <summary>What is HCG?</summary>
+    <p>HCG (Human Chorionic Gonadotropin) is commonly researched for hormonal support, endocrine function, and wellness-focused applications.</p>
+</details>
+
+<details>
+    <summary>How should it be stored?</summary>
+    <p>Store between 5°C and 25°C. Keep out of reach of children.</p>
+</details>
+
+<details>
+    <summary>What's included?</summary>
+    <p>One 5000 IU sterile multi-dose vial of HCG®.</p>
+</details>
+
+<div class="detail-card">
+    <strong>Strength</strong>
+    <span>5000 IU</span>
+</div>
+
+<div class="detail-card">
+    <strong>Volume</strong>
+    <span>3ml Multi-Dose Vial</span>
+</div>
+
+<div class="detail-card">
+    <strong>Storage</strong>
+    <span>5°C - 25°C</span>
+</div>
+
+<div class="detail-card">
+    <strong>Category</strong>
+    <span>Metabolic Hormonal Support & Wellness</span>
+</div>
+
+const product = {
+    name: "HCG",
+    price: "$" + packageSelect.value,
+    dose: "5000 IU",
+    package: packageSelect.options[packageSelect.selectedIndex].text,
+    quantity: quantity,
+    image: "red-cap-hcg-bg-removed.png"
+};

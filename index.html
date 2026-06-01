@@ -310,7 +310,37 @@ backround-attachment: scroll;
     .hero-content{
         max-width:100%;
         overflow:hidden;
-    }
+      .hero-title-row{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    margin-bottom:28px;
+}
+
+.hero-title-row{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.hero-title-row h1{
+    margin:0;
+}
+
+.hero-t-logo{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    font-weight:700;
+    color:white;
+    background:linear-gradient(135deg,#ff4fd8,#6d7cff);
+    box-shadow:0 0 25px rgba(255,79,216,.4);
+     
 }
   </style>
 </head>
@@ -332,8 +362,10 @@ backround-attachment: scroll;
         <span class="rx-font">TranscendRX<span class="tiny-r">®</span></span>
       </div>
 
-      <h1>TRANSCEND<br>PERFORMANCE</h1>
-
+      <div class="hero-title-row">
+  <h1>TRANSCEND<br>PERFORMANCE</h1>
+  <div class="here-t-logo">T</div>
+</div>
       <p>
 Precision. Performance. Optimization.
 A curated collection of premium research compounds backed by quality sourcing,

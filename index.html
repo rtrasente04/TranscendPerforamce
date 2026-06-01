@@ -38,12 +38,26 @@
     }
 
     .logo{
-      font-family:'Ruwudu', serif;
-      color:#e7e2f2;
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:2px;
-    }
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.logo-icon{
+    width:32px;
+    height:32px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#ff4dff,#7d5cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:800;
+    color:white;
+    box-shadow:0 0 15px rgba(255,77,255,.5);
+}
 
     nav a{
       text-decoration:none;
@@ -404,8 +418,10 @@
 
 <body>
   <header>
-    <div class="logo">TRANSCEND PERFORMANCE</div>
-    <nav>
+    <div class="logo">
+    <span class="logo-icon">T</span>
+    <span>TRANSCEND PERFORMANCE</span>
+</div>
       <a href="#products">Products</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -421,7 +437,6 @@
 
       <div class="hero-title-row">
         <h1>TRANSCEND<br>PERFORMANCE</h1>
-        <div class="hero-t-logo">T</div>
       </div>
 
       <p>

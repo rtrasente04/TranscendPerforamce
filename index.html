@@ -8,8 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Happy+Monkey&family=Ruwudu:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
+
+    html{scroll-behavior:smooth;}
 
     body{
       font-family:'Happy Monkey', cursive;
@@ -17,8 +20,6 @@
       color:#0f172a;
       overflow-x:hidden;
     }
-
-    html{scroll-behavior:smooth;}
 
     header{
       width:100%;
@@ -45,14 +46,14 @@
     }
 
     nav a{
-    text-decoration:none;
-    color:#b9b5c9;
-    margin-left:28px;
-    font-family:'Cormorant Garamond', serif;
-    font-size:32px;
-    font-weight:600;
-    transition:.2s;
-}
+      text-decoration:none;
+      color:#b9b5c9;
+      margin-left:28px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:32px;
+      font-weight:600;
+      transition:.2s;
+    }
 
     nav a:hover{color:#d946ef;}
 
@@ -66,24 +67,23 @@
       padding:40px 20px 70px;
       overflow:hidden;
       background-image:
-  linear-gradient(
-    90deg,
-    rgba(5, 5, 20, 0.88) 0%,
-    rgba(5, 5, 20, 0.55) 38%,
-    rgba(5, 5, 20, 0.15) 100%
-  ),
-  url("images/transcend-hero-vials.png");
-
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-backround-attachment: scroll;
+        linear-gradient(
+          90deg,
+          rgba(5, 5, 20, 0.88) 0%,
+          rgba(5, 5, 20, 0.55) 38%,
+          rgba(5, 5, 20, 0.15) 100%
+        ),
+        url("images/transcend-hero-vials.png");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:scroll;
     }
 
     .hero-content{
       position:relative;
       z-index:2;
-      max-width:550px;
+      max-width:650px;
       margin-left:5%;
     }
 
@@ -115,13 +115,42 @@ backround-attachment: scroll;
       top:-2px;
     }
 
+    .hero-title-row{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      margin-bottom:28px;
+    }
+
+    .hero-title-row h1{
+      margin:0;
+    }
+
+    .hero-t-logo{
+      width:82px;
+      height:82px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-family:'Ruwudu', serif;
+      font-size:52px;
+      font-weight:900;
+      color:white;
+      background:linear-gradient(135deg,#ff4fd8,#6d7cff);
+      box-shadow:
+        0 0 25px rgba(255,79,216,.45),
+        0 0 45px rgba(109,124,255,.25);
+      text-shadow:0 0 10px rgba(255,255,255,.35);
+    }
+
     h1{
       font-family:'Ruwudu', serif;
-      font-size:clamp(4 rem,8vw,7rem);
+      font-size:clamp(4rem,8vw,7rem);
       line-height:.9;
       font-weight:900;
       letter-spacing:-2px;
-      max-width:100%;
       color:#f5f0ff;
       text-shadow:
         0 0 10px rgba(255,255,255,.10),
@@ -131,8 +160,8 @@ backround-attachment: scroll;
 
     .hero p{
       max-width:760px;
-      margin:34px auto 0;
-      padding:0 15px;
+      margin:0;
+      padding:0;
       font-size:22px;
       line-height:1.7;
       color:#f3eefc;
@@ -151,7 +180,7 @@ backround-attachment: scroll;
       padding:18px 34px;
       border-radius:999px;
       font-weight:800;
-      margin:10px;
+      margin:10px 10px 10px 0;
       transition:.25s ease;
     }
 
@@ -223,6 +252,8 @@ backround-attachment: scroll;
       border:1px solid rgba(0,0,0,.06);
       box-shadow:0 18px 50px rgba(15,23,42,.08);
       transition:.3s ease;
+      text-decoration:none;
+      color:inherit;
     }
 
     .card:hover{
@@ -300,48 +331,74 @@ backround-attachment: scroll;
       border-top:1px solid #dce7f2;
       background:white;
     }
-    @media (max-width:600px){
-    h1{
+
+    @media (max-width:700px){
+      header{
+        padding:18px 5%;
+        flex-direction:column;
+        gap:10px;
+      }
+
+      nav a{
+        font-size:22px;
+        margin:0 10px;
+      }
+
+      .hero{
+        padding:140px 18px 70px;
+        background-position:center;
+      }
+
+      .hero-content{
+        max-width:100%;
+        margin-left:0;
+      }
+
+      .badge{
+        font-size:12px;
+        padding:12px 20px;
+        margin-bottom:24px;
+      }
+
+      .hero-title-row{
+        gap:14px;
+        align-items:center;
+      }
+
+      h1{
         font-size:52px;
         line-height:1;
         letter-spacing:-1px;
+      }
+
+      .hero-t-logo{
+        width:58px;
+        height:58px;
+        border-radius:15px;
+        font-size:36px;
+      }
+
+      .hero p{
+        font-size:18px;
+        line-height:1.6;
+      }
+
+      .btn{
+        padding:15px 24px;
+      }
+
+      section{
+        padding:80px 5%;
+      }
+
+      .section-header h2{
+        font-size:40px;
+      }
+
+      .contact-box{
+        padding:36px 24px;
+      }
     }
-
-    .hero-content{
-        max-width:100%;
-        overflow:hidden;
-      .hero-title-row{
-    display:flex;
-    align-items:center;
-    gap:22px;
-    margin-bottom:28px;
-}
-
-.hero-title-row{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    margin-bottom:20px;
-}
-
-.hero-title-row h1{
-    margin:0;
-}
-
-.hero-t-logo{
-    width:70px;
-    height:70px;
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
-    font-weight:700;
-    color:white;
-    background:linear-gradient(135deg,#ff4fd8,#6d7cff);
-    box-shadow:0 0 25px rgba(255,79,216,.4);
-     
-}
   </style>
 </head>
 
@@ -363,14 +420,15 @@ backround-attachment: scroll;
       </div>
 
       <div class="hero-title-row">
-  <h1>TRANSCEND<br>PERFORMANCE</h1>
-  <div class="here-t-logo">T</div>
-</div>
+        <h1>TRANSCEND<br>PERFORMANCE</h1>
+        <div class="hero-t-logo">T</div>
+      </div>
+
       <p>
-Precision. Performance. Optimization.
-A curated collection of premium research compounds backed by quality sourcing,
-modern presentation, and an uncompromising standard of excellence.
-</p>
+        Precision. Performance. Optimization.
+        A curated collection of premium research compounds backed by quality sourcing,
+        modern presentation, and an uncompromising standard of excellence.
+      </p>
 
       <div class="buttons">
         <a href="#products" class="btn primary">View Products</a>
@@ -388,32 +446,31 @@ modern presentation, and an uncompromising standard of excellence.
       </p>
     </div>
 
-   <div class="cards">
-<a class="card" href="products.html#favorites">
-  <span>01</span>
-  <h3>Client Favorites</h3>
-  <p>Most-requested products and top picks.</p>
-</a>
+    <div class="cards">
+      <a class="card" href="products.html#favorites">
+        <span>01</span>
+        <h3>Client Favorites</h3>
+        <p>Most-requested products and top picks.</p>
+      </a>
 
-<a class="card" href="products.html#peptides">
-  <span>02</span>
-  <h3>Peptides</h3>
-  <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
-</a>
+      <a class="card" href="products.html#peptides">
+        <span>02</span>
+        <h3>Peptides</h3>
+        <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
+      </a>
 
-<a class="card" href="products.html#injectables">
-  <span>03</span>
-  <h3>Injectables / Oils</h3>
-  <p>Injectable product options organized for easy browsing.</p>
-</a>
+      <a class="card" href="products.html#injectables">
+        <span>03</span>
+        <h3>Injectables / Oils</h3>
+        <p>Injectable product options organized for easy browsing.</p>
+      </a>
 
-<a class="card" href="products.html#orals">
-  <span>04</span>
-  <h3>Orals</h3>
-  <p>Oral product options listed separately from vial-based products.</p>
-</a>
-  
-</div>
+      <a class="card" href="products.html#orals">
+        <span>04</span>
+        <h3>Orals</h3>
+        <p>Oral product options listed separately from vial-based products.</p>
+      </a>
+    </div>
   </section>
 
   <section class="about" id="about">

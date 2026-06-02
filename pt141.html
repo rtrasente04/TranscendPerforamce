@@ -384,7 +384,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+       <a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -556,7 +556,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "PT-141",
-        price: "$" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "10mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

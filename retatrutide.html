@@ -391,7 +391,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+<a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -557,7 +557,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "Retatrutide",
-        Price: "$64.99",
+        Price: Number(packageSelect.value),
         package: document.querySelectorAll(".selector select")[1].value,
         quantity: quantity,
         image: "red-cap-reta-bg-removed.png"

@@ -218,16 +218,17 @@ function renderCart(){
     cartItemsContainer.innerHTML = "";
 
     if(cart.length === 0){
-        cartItemsContainer.innerHTML = `
-            <div class="empty-cart">
-                Your cart is empty.
-                <br><br>
-                <a href="products.html" style="color:white;">Go back to products</a>
-            </div>
-        `;
-        cartSummary.style.display = "none";
-        return;
-    }
+    cartItemsContainer.innerHTML = `
+        <div class="empty-cart">
+            Your cart is empty.
+            <br><br>
+            <a href="products.html" style="color:white;">Go back to products</a>
+        </div>
+    `;
+    cartSummary.style.display = "none";
+    return;
+}
+    
 
     cartSummary.style.display = "block";
 
@@ -235,19 +236,20 @@ function renderCart(){
 
     cart.forEach(function(item, index){
         const cleanPrice = Number(String(item.price).replace("$", ""));
-const itemTotal = cleanPrice * Number(item.quantity);
+const cleanPrice = Number(item.price || item.package || 0);
+const itemTotal = cleanPrice * Number(item.quantity || 1);
         total += itemTotal;
 
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.name}">
                 
-                <div>
-                    <div class="item-details">Price: $${cleanPrice}</div>
-                    <div class="item-details">Dose: ${item.dose}</div>
-                    <div class="item-details">Package: ${item.package}</div>
-                    <div class="item-details">Price: $${item.price}</div>
-                </div>
+               <div>
+    <div class="item-name">${item.name}</div>
+    <div class="item-details">Dose: ${item.dose}</div>
+    <div class="item-details">Package: ${item.package}</div>
+    <div class="item-details">Price: $${item.price}</div>
+</div>
 
                 <div class="item-actions">
                     <div class="qty-controls">

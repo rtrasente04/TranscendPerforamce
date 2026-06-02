@@ -385,7 +385,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+        <a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -576,7 +576,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "NAD+®",
-        price: "$" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "100mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

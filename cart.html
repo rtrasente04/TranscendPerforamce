@@ -241,7 +241,10 @@ function renderCart(){
                <img
   src="${item.image || ''}"
   alt="${item.name || 'Product'}"
-onerror="if(this.alt.includes('Semaglutide')) this.src='images/peptides/red-cap-semaglutide-bg-removed.png';"
+  onerror="
+    if(this.alt.includes('Semaglutide')) this.src='images/peptides/red-cap-semaglutide-bg-removed.png';
+    if(this.alt.includes('NAD')) this.src='images/peptides/red-cap-nad+-bg-removed.png';
+  "
 >
                 <div>
                     <div class="item-name">${item.name || "Product"}</div>

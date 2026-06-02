@@ -217,7 +217,7 @@ function renderCart(){
     const cart = getCart();
     cartItemsContainer.innerHTML = "";
 
-    if(cart.length === 0){
+if(cart.length === 0){
     cartItemsContainer.innerHTML = `
         <div class="empty-cart">
             Your cart is empty.
@@ -226,6 +226,7 @@ function renderCart(){
         </div>
     `;
     cartSummary.style.display = "none";
+    cartTotal.textContent = "$0";
     return;
 }
     

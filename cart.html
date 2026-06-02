@@ -215,7 +215,6 @@ function saveCart(cart){
 
 function renderCart(){
     const cart = getCart();
-
     cartItemsContainer.innerHTML = "";
 
     if(cart.length === 0){
@@ -235,7 +234,7 @@ function renderCart(){
     let total = 0;
 
     cart.forEach(function(item, index){
-        const itemTotal = Number(item.price.) * Number(item.quantity);
+        const itemTotal = Number(item.price) * Number(item.quantity);
         total += itemTotal;
 
         cartItemsContainer.innerHTML += `
@@ -269,7 +268,6 @@ function renderCart(){
 
 function changeQuantity(index, amount){
     const cart = getCart();
-
     cart[index].quantity += amount;
 
     if(cart[index].quantity < 1){
@@ -297,7 +295,7 @@ function clearCart(){
 }
 
 function checkout(){
-    alert("Checkout page coming soon. For now, contact Transcend Performance to complete your order.");
+    alert("Checkout page coming soon. Please contact Transcend Performance to complete your order.");
 }
 
 renderCart();

@@ -550,7 +550,7 @@ function updateCartCount(){
         return total + item.quantity;
     }, 0);
 
-    cartCount.textContent = totalItems;
+    document.getElementById("cart-count").textContent = totalItems;
 }
 
 addCartBtn.addEventListener("click", function(){

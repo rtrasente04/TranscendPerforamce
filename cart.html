@@ -19,7 +19,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:22px 45px;
-    background:rgba(2, 10, 30, .55);
+    background:rgba(2,10,30,.55);
     border-bottom:1px solid rgba(255,255,255,.12);
 }
 
@@ -48,7 +48,6 @@ body{
 
 h1{
     font-size:3rem;
-    margin-bottom:30px;
 }
 
 .cart-item{
@@ -70,11 +69,11 @@ h1{
 .item-name{
     font-size:1.4rem;
     font-weight:bold;
+    margin-bottom:8px;
 }
 
 .item-details{
-    opacity:.85;
-    margin-top:8px;
+    margin-top:6px;
 }
 
 .item-actions{
@@ -86,7 +85,7 @@ h1{
     gap:10px;
     align-items:center;
     justify-content:flex-end;
-    margin:10px 0;
+    margin-bottom:12px;
 }
 
 .qty-controls button,
@@ -125,7 +124,7 @@ h1{
 }
 
 .checkout-btn{
-    background:linear-gradient(90deg, #ff4b6e, #2f70ff);
+    background:linear-gradient(90deg,#ff4b6e,#2f70ff);
     color:white;
     font-size:1rem;
     padding:15px 28px;
@@ -151,26 +150,18 @@ h1{
         gap:15px;
     }
 
-    .nav-links{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
     .cart-item{
         grid-template-columns:1fr;
         text-align:center;
     }
 
-    .item-actions{
+    .item-actions,
+    .cart-summary{
         text-align:center;
     }
 
     .qty-controls{
         justify-content:center;
-    }
-
-    .cart-summary{
-        text-align:center;
     }
 }
 </style>
@@ -194,7 +185,7 @@ h1{
     <div id="cart-items"></div>
 
     <div class="cart-summary" id="cart-summary">
-        <div class="total" id="cart-total">$0</div>
+        <div class="total" id="cart-total">Total: $0</div>
         <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
         <button class="checkout-btn" onclick="checkout()">Checkout</button>
     </div>
@@ -206,7 +197,11 @@ const cartTotal = document.getElementById("cart-total");
 const cartSummary = document.getElementById("cart-summary");
 
 function getCart(){
-    return JSON.parse(localStorage.getItem("cart")) || [];
+    try{
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch(e){
+        return [];
+    }
 }
 
 function saveCart(cart){
@@ -217,45 +212,45 @@ function renderCart(){
     const cart = getCart();
     cartItemsContainer.innerHTML = "";
 
-if(cart.length === 0){
-    cartItemsContainer.innerHTML = `
-        <div class="empty-cart">
-            Your cart is empty.
-            <br><br>
-            <a href="products.html" style="color:white;">Go back to products</a>
-        </div>
-    `;
-    cartSummary.style.display = "none";
-    cartTotal.textContent = "$0";
-    return;
-}
-    
+    if(cart.length === 0){
+        cartItemsContainer.innerHTML = `
+            <div class="empty-cart">
+                Your cart is empty.
+                <br><br>
+                <a href="products.html" style="color:white;">Go back to products</a>
+            </div>
+        `;
+        cartSummary.style.display = "none";
+        cartTotal.textContent = "Total: $0";
+        return;
+    }
 
     cartSummary.style.display = "block";
 
     let total = 0;
 
     cart.forEach(function(item, index){
-        const cleanPrice = Number(String(item.price).replace("$", ""));
-const cleanPrice = Number(item.price || item.package || 0);
-const itemTotal = cleanPrice * Number(item.quantity || 1);
+        const price = Number(item.price || 0);
+        const quantity = Number(item.quantity || 1);
+        const itemTotal = price * quantity;
+
         total += itemTotal;
 
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}">
-                
-               <div>
-    <div class="item-name">${item.name}</div>
-    <div class="item-details">Dose: ${item.dose}</div>
-    <div class="item-details">Package: ${item.package}</div>
-    <div class="item-details">Price: $${item.price}</div>
-</div>
+                <img src="${item.image || ""}" alt="${item.name || "Product"}">
+
+                <div>
+                    <div class="item-name">${item.name || "Product"}</div>
+                    <div class="item-details">Dose: ${item.dose || "N/A"}</div>
+                    <div class="item-details">Package: ${item.package || "Single Vial"}</div>
+                    <div class="item-details">Price: $${price}</div>
+                </div>
 
                 <div class="item-actions">
                     <div class="qty-controls">
                         <button onclick="changeQuantity(${index}, -1)">-</button>
-                        <strong>${item.quantity}</strong>
+                        <strong>${quantity}</strong>
                         <button onclick="changeQuantity(${index}, 1)">+</button>
                     </div>
 
@@ -272,7 +267,8 @@ const itemTotal = cleanPrice * Number(item.quantity || 1);
 
 function changeQuantity(index, amount){
     const cart = getCart();
-    cart[index].quantity += amount;
+
+    cart[index].quantity = Number(cart[index].quantity || 1) + amount;
 
     if(cart[index].quantity < 1){
         cart[index].quantity = 1;
@@ -299,7 +295,7 @@ function clearCart(){
 }
 
 function checkout(){
-    alert("Checkout page coming soon. Please contact Transcend Performance to complete your order.");
+    alert("Checkout page coming soon. Contact Transcend Performance to complete your order.");
 }
 
 renderCart();

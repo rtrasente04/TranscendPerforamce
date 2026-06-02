@@ -547,8 +547,16 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("cart", JSON.stringify(cart));
 
         updateCartCount();
-        alert("Retatrutide added to cart");
+
+addToCartBtn.innerHTML = "✓ Added To Cart";
+addToCartBtn.disabled = true;
+
+setTimeout(() => {
+    addToCartBtn.innerHTML = "Add To Cart";
+    addToCartBtn.disabled = false;
+}, 2000);
     });
+       
 
     updatePrice();
     updateQuantity();

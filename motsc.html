@@ -18,6 +18,8 @@ body{margin:0;min-height:100vh;color:white;background:radial-gradient(circle at 
 .nav-links a{color:white;text-decoration:none;font-weight:bold;font-size:.85rem;}
 .header-icons{display:flex;align-items:center;gap:22px;font-size:1.5rem;}
 .cart-icon{position:relative;}
+    color:white;
+    text-decoration:none;
 .cart-icon small{position:absolute;top:-10px;right:-12px;background:#dce7ff;color:#061225;border-radius:50%;font-size:.7rem;padding:2px 6px;}
 .product-page{max-width:1300px;margin:0 auto;padding:40px 30px 60px;}
 .product-container{display:flex;gap:55px;align-items:center;}
@@ -77,7 +79,7 @@ details{border:1px solid rgba(20,32,63,.15);border-radius:12px;padding:15px 18px
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+<a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -249,7 +251,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "MOTS-c",
-        price: "$" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "10mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

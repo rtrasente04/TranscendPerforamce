@@ -238,8 +238,11 @@ function renderCart(){
 
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
-                <img src="${item.image || ""}" alt="${item.name || "Product"}">
-
+               <img
+  src="${item.image || ''}"
+  alt="${item.name || 'Product'}"
+onerror="if(this.alt.includes('Semaglutide')) this.src='images/peptides/red-cap-semaglutide-bg-removed.png';"
+>
                 <div>
                     <div class="item-name">${item.name || "Product"}</div>
                     <div class="item-details">Dose: ${item.dose || "N/A"}</div>

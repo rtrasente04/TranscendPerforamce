@@ -384,7 +384,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+<span href="cart.html" class="cart-icon">🛒<small>0</small></a
     </div>
 </header>
 
@@ -556,7 +556,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "GHK-Cu",
-        price: "$39.99" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "50mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

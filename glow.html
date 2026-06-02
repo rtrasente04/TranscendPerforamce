@@ -391,7 +391,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+<span href="cart.html" class="cart-icon">🛒<small>0</small></a
     </div>
 </header>
 
@@ -560,7 +560,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
     name: "GLOW",
-    price: "$" + packageSelect.value,
+    price: Number(packageSelect.value),
     dose: "70mg",
     package: packageSelect.options[packageSelect.selectedIndex].text,
     quantity: quantity,

@@ -516,194 +516,151 @@ details{
 </section>
 
 </main>
-    <script>
-const minusBtn = document.querySelector(".quantity-box button:first-child");
-const plusBtn = document.querySelector(".quantity-box button:last-child");
-const quantityNumber = document.querySelector(".quantity-box span");
-const addCartBtn = document.querySelector(".add-cart");
-const cartCount = document.querySelector(".cart-icon small");
-
-let quantity = 1;
-
-function updateQuantity(){
-    quantityNumber.textContent = quantity;
-}
-
-minusBtn.addEventListener("click", function(){
-    if(quantity > 1){
-        quantity--;
-        updateQuantity();
-    }
-});
-
-plusBtn.addEventListener("click", function(){
-    if(quantity < 9){
-        quantity++;
-        updateQuantity();
-    }
-});
-
-function updateCartCount(){
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const totalItems = cart.reduce(function(total, item){
-        return total + item.quantity;
-    }, 0);
-
-    cartCount.textContent = totalItems;
-}
-
-addCartBtn.addEventListener("click", function(){
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const product = {
-        name: "Retatrutide",
-        price: packageSelect.value.includes("10") ? 600 : 80,
-        dose: "10mg",
-        package: packageSelect.options[packageSelect.selectedIndex].text,
-        quantity: quantity,
-        image: "red-cap-reta-bg-removed.png"
-    };
-
-    const existingItem = cart.find(function(item){
-        return item.name === product.name &&
-               item.dose === product.dose &&
-               item.package === product.package;
-    });
-
-    if(existingItem){
-        existingItem.quantity += product.quantity;
-
-        if(existingItem.quantity > 9){
-            existingItem.quantity = 9;
-        }
-    } else {
-        cart.push(product);
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-
-    addCartBtn.textContent = "✓ Added To Cart";
-
-    setTimeout(function(){
-        addCartBtn.textContent = "🛒 Add To Cart";
-    }, 1200);
-});
-
-updateQuantity();
-updateCartCount();
-</script>
-
-<footer class="footer">
-    <div class="footer-logo">
-        TRANSCEND PERFORMANCE
-    </div>
-
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
-
-    <p class="footer-text">
-        Premium Performance • Recovery • Wellness
-    </p>
-</footer>
 <script>
-const packageSelect = document.getElementById("package-select");
-const priceDisplay = document.getElementById("price");
+document.addEventListener("DOMContentLoaded", function () {
+  const minusBtn = document.getElementById("minusBtn");
+  const plusBtn = document.getElementById("plusBtn");
+  const quantityDisplay = document.getElementById("quantity");
+  const packageSelect = document.getElementById("packageSelect");
+  const addToCartBtn = document.getElementById("addToCartBtn");
 
-const minusBtn = document.querySelector(".quantity-box button:first-child");
-const plusBtn = document.querySelector(".quantity-box button:last-child");
-const quantityNumber = document.querySelector(".quantity-box span");
-const addCartBtn = document.querySelector(".add-cart");
-const cartCount = document.querySelector(".cart-icon small");
+  let quantity = 1;
 
-let quantity = 1;
+  const prices = {
+    single: 80,
+    box: 600
+  };
 
-function updatePrice(){
-    priceDisplay.textContent = "$" + packageSelect.value;
-}
+  function updateQuantity() {
+    quantityDisplay.textContent = quantity;
+  }
 
-function updateQuantity(){
-    quantityNumber.textContent = quantity;
-}
-
-function getCart(){
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart){
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function updateCartCount(){
-    const cart = getCart();
-    const totalItems = cart.reduce(function(total, item){
-        return total + Number(item.quantity || 1);
-    }, 0);
-
-    cartCount.textContent = totalItems;
-}
-
-minusBtn.addEventListener("click", function(){
-    if(quantity > 1){
+  if (minusBtn) {
+    minusBtn.addEventListener("click", function () {
+      if (quantity > 1) {
         quantity--;
         updateQuantity();
-    }
-});
+      }
+    });
+  }
 
-plusBtn.addEventListener("click", function(){
-    if(quantity < 9){
+  if (plusBtn) {
+    plusBtn.addEventListener("click", function () {
+      if (quantity < 9) {
         quantity++;
         updateQuantity();
-    }
-});
-
-packageSelect.addEventListener("change", updatePrice);
-
-addCartBtn.addEventListener("click", function(){
-    const cart = getCart();
-
-    const product = {
-        name: "Retatrutide",
-        price: Number(packageSelect.value),
-        dose: "10mg",
-        package: packageSelect.options[packageSelect.selectedIndex].text,
-        quantity: quantity,
-        image: "red-cap-reta-bg-removed.png"
-    };
-
-    const existingItem = cart.find(function(item){
-        return item.name === product.name &&
-               item.dose === product.dose &&
-               item.package === product.package;
+      }
     });
+  }
 
-    if(existingItem){
-        existingItem.quantity = Number(existingItem.quantity || 1) + product.quantity;
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", function () {
+      const selectedPackage = packageSelect ? packageSelect.value : "single";
+      const price = prices[selectedPackage] || prices.single;
 
-        if(existingItem.quantity > 9){
-            existingItem.quantity = 9;
-        }
-    } else {
-        cart.push(product);
+      const item = {
+        name: "Retatrutide",
+        package: selectedPackage === "box" ? "Box of 10" : "Single Vial",
+        price: price,
+        quantity: quantity,
+        image: "red-cap-retatrutide-bg-removed.png"
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("Added to cart");
+      updateCartCount();
+    });
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
+
+    const cartCount = document.querySelector(".cart-icon small");
+    if (cartCount) {
+      cartCount.textContent = count;
     }
+  }
 
-    saveCart(cart);
-    updateCartCount();
-
-    addCartBtn.textContent = "✓ Added To Cart";
-
-    setTimeout(function(){
-        addCartBtn.textContent = "🛒 Add To Cart";
-    }, 1200);
+  updateQuantity();
+  updateCartCount();
 });
+</script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const minusBtn = document.getElementById("minusBtn");
+  const plusBtn = document.getElementById("plusBtn");
+  const quantityDisplay = document.getElementById("quantity");
+  const packageSelect = document.getElementById("packageSelect");
+  const addToCartBtn = document.getElementById("addToCartBtn");
 
-updatePrice();
-updateQuantity();
-updateCartCount();
+  let quantity = 1;
+
+  const prices = {
+    single: 80,
+    box: 600
+  };
+
+  function updateQuantity() {
+    quantityDisplay.textContent = quantity;
+  }
+
+  if (minusBtn) {
+    minusBtn.addEventListener("click", function () {
+      if (quantity > 1) {
+        quantity--;
+        updateQuantity();
+      }
+    });
+  }
+
+  if (plusBtn) {
+    plusBtn.addEventListener("click", function () {
+      if (quantity < 9) {
+        quantity++;
+        updateQuantity();
+      }
+    });
+  }
+
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", function () {
+      const selectedPackage = packageSelect ? packageSelect.value : "single";
+      const price = prices[selectedPackage] || prices.single;
+
+      const item = {
+        name: "Retatrutide",
+        package: selectedPackage === "box" ? "Box of 10" : "Single Vial",
+        price: price,
+        quantity: quantity,
+        image: "red-cap-retatrutide-bg-removed.png"
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("Added to cart");
+      updateCartCount();
+    });
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
+
+    const cartCount = document.querySelector(".cart-icon small");
+    if (cartCount) {
+      cartCount.textContent = count;
+    }
+  }
+
+  updateQuantity();
+  updateCartCount();
+});
 </script>
 </body>
 </html>

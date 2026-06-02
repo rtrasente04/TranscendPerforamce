@@ -391,7 +391,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-<span href="cart.html" class="cart-icon">🛒<small>0</small></a
+<span href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -525,25 +525,23 @@ const plusBtn = document.querySelector(".quantity-box button:last-child");
 const quantityNumber = document.querySelector(".quantity-box span");
 const addCartBtn = document.querySelector(".add-cart");
 const cartCount = document.querySelector(".cart-icon small");
-
+const packageSelect = document.getElementById("package-select");
+const priceDisplay = document.getElementById("price");
 let quantity = 1;
 
 function updateQuantity(){
     quantityNumber.textContent = quantity;
 }
 
-minusBtn.addEventListener("click", function(){
-    if(quantity > 1){
-        quantity--;
-        updateQuantity();
-    }
-});
-
 plusBtn.addEventListener("click", function(){
     if(quantity < 9){
         quantity++;
         updateQuantity();
     }
+});
+
+packageSelect.addEventListener("change", function(){
+    priceDisplay.textContent = "$" + this.value;
 });
 
 function updateCartCount(){
@@ -567,11 +565,11 @@ addCartBtn.addEventListener("click", function(){
     image: "red-cap-glow-bg-removed.png"
     };
 
-    const existingItem = cart.find(function(item){
-        return item.name "GLOW" product.name &&
-               item.dose "70mg" product.dose &&
-               item.package  product.package;
-    });
+   const existingItem = cart.find(function(item){
+    return item.name === product.name &&
+           item.dose === product.dose &&
+           item.package === product.package;
+});
 
     if(existingItem){
         existingItem.quantity += product.quantity;
@@ -613,13 +611,6 @@ updateCartCount();
         Premium Performance • Recovery • Wellness
     </p>
 </footer>
-<script>
-const packageSelect = document.getElementById('package-select');
-const priceDisplay = document.getElementById('price');
 
-packageSelect.addEventListener('change', function () {
-  priceDisplay.textContent = '$79.99' + this.value;
-});
-</script>
 </body>
 </html>

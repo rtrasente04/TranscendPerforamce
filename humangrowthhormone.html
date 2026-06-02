@@ -547,12 +547,11 @@ packageSelect.addEventListener("change", function(){
 function updateCartCount(){
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const totalItems = cart.reduce(function(total, item){
-        return total + item.quantity;
+        return total + Number(item.quantity || 1);
     }, 0);
 
     document.getElementById("cart-count").textContent = totalItems;
 }
-
 addCartBtn.addEventListener("click", function(){
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 

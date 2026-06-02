@@ -559,7 +559,7 @@ addCartBtn.addEventListener("click", function(){
         name: "Retatrutide",
         Price: Number(packageSelect.value),
         dose: "10mg",
-        package: document.querySelectorAll(".selector select")[1].value,
+        package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,
         image: "red-cap-reta-bg-removed.png"
     };

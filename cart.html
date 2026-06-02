@@ -234,7 +234,8 @@ function renderCart(){
     let total = 0;
 
     cart.forEach(function(item, index){
-        const itemTotal = Number(item.price) * Number(item.quantity);
+        const cleanPrice = Number(String(item.price).replace("$", ""));
+const itemTotal = cleanPrice * Number(item.quantity);
         total += itemTotal;
 
         cartItemsContainer.innerHTML += `
@@ -242,7 +243,7 @@ function renderCart(){
                 <img src="${item.image}" alt="${item.name}">
                 
                 <div>
-                    <div class="item-name">${item.name}</div>
+                    <div class="item-details">Price: $${cleanPrice}</div>
                     <div class="item-details">Dose: ${item.dose}</div>
                     <div class="item-details">Package: ${item.package}</div>
                     <div class="item-details">Price: $${item.price}</div>

@@ -556,7 +556,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "IGF1-LR3",
-        price: "$" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "1mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

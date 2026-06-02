@@ -385,7 +385,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+  <a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -565,7 +565,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "Tren E",
-        price: 75,
+        price: Number(packageSelect.value),
         displayPrice: "$75",
         dose: "200mg/ml",
         package: "Single Vial",

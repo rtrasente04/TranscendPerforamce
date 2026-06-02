@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | Transcend Performance</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    color:white;
+    background:linear-gradient(to bottom, #061225, #101b42, #e9ddff);
+    font-family:Arial, sans-serif;
+}
+
+.site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 45px;
+    background:rgba(2, 10, 30, .55);
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.logo-text{
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:1.4rem;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.cart-page{
+    max-width:1000px;
+    margin:0 auto;
+    padding:50px 25px;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:30px;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:120px 1fr auto;
+    gap:25px;
+    align-items:center;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:18px;
+}
+
+.cart-item img{
+    width:120px;
+}
+
+.item-name{
+    font-size:1.4rem;
+    font-weight:bold;
+}
+
+.item-details{
+    opacity:.85;
+    margin-top:8px;
+}
+
+.item-actions{
+    text-align:right;
+}
+
+.qty-controls{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:flex-end;
+    margin:10px 0;
+}
+
+.qty-controls button,
+.remove-btn,
+.checkout-btn,
+.clear-btn{
+    border:none;
+    border-radius:10px;
+    padding:10px 14px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.qty-controls button{
+    background:white;
+    color:#061225;
+}
+
+.remove-btn{
+    background:#ff4b6e;
+    color:white;
+}
+
+.cart-summary{
+    margin-top:30px;
+    background:rgba(255,255,255,.18);
+    border-radius:18px;
+    padding:25px;
+    text-align:right;
+}
+
+.total{
+    font-size:2rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.checkout-btn{
+    background:linear-gradient(90deg, #ff4b6e, #2f70ff);
+    color:white;
+    font-size:1rem;
+    padding:15px 28px;
+}
+
+.clear-btn{
+    background:rgba(255,255,255,.2);
+    color:white;
+    margin-right:10px;
+}
+
+.empty-cart{
+    background:rgba(255,255,255,.14);
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    font-size:1.2rem;
+}
+
+@media(max-width:700px){
+    .site-header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .cart-item{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .item-actions{
+        text-align:center;
+    }
+
+    .qty-controls{
+        justify-content:center;
+    }
+
+    .cart-summary{
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo-text">TRANSCEND PERFORMANCE</div>
+
+    <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="products.html">PRODUCTS</a>
+        <a href="index.html#contact">CONTACT</a>
+    </nav>
+</header>
+
+<main class="cart-page">
+    <h1>Your Cart</h1>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-summary" id="cart-summary">
+        <div class="total" id="cart-total">$0</div>
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+</main>
+
+<script>
+const cartItemsContainer = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const cartSummary = document.getElementById("cart-summary");
+
+function getCart(){
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function renderCart(){
+    const cart = getCart();
+
+    cartItemsContainer.innerHTML = "";
+
+    if(cart.length === 0){
+        cartItemsContainer.innerHTML = `
+            <div class="empty-cart">
+                Your cart is empty.
+                <br><br>
+                <a href="products.html" style="color:white;">Go back to products</a>
+            </div>
+        `;
+        cartSummary.style.display = "none";
+        return;
+    }
+
+    cartSummary.style.display = "block";
+
+    let total = 0;
+
+    cart.forEach(function(item, index){
+        const itemTotal = Number(item.price) * Number(item.quantity);
+        total += itemTotal;
+
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                
+                <div>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-details">Dose: ${item.dose}</div>
+                    <div class="item-details">Package: ${item.package}</div>
+                    <div class="item-details">Price: $${item.price}</div>
+                </div>
+
+                <div class="item-actions">
+                    <div class="qty-controls">
+                        <button onclick="changeQuantity(${index}, -1)">-</button>
+                        <strong>${item.quantity}</strong>
+                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+
+                    <div><strong>$${itemTotal}</strong></div>
+                    <br>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>
+            </div>
+        `;
+    });
+
+    cartTotal.textContent = "Total: $" + total;
+}
+
+function changeQuantity(index, amount){
+    const cart = getCart();
+
+    cart[index].quantity += amount;
+
+    if(cart[index].quantity < 1){
+        cart[index].quantity = 1;
+    }
+
+    if(cart[index].quantity > 9){
+        cart[index].quantity = 9;
+    }
+
+    saveCart(cart);
+    renderCart();
+}
+
+function removeItem(index){
+    const cart = getCart();
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCart();
+}
+
+function clearCart(){
+    localStorage.removeItem("cart");
+    renderCart();
+}
+
+function checkout(){
+    alert("Checkout page coming soon. For now, contact Transcend Performance to complete your order.");
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

@@ -557,7 +557,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "Retatrutide",
-        price: Number(packageSelect.value),
+        price: packageSelect.value.includes("10") ? 600 : 80,
         dose: "10mg",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

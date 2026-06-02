@@ -375,7 +375,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-        <span class="cart-icon">🛒<small>0</small></span>
+       <span href="cart.html" class="cart-icon">🛒<small>0</small></a
     </div>
 </header>
 
@@ -566,7 +566,7 @@ addCartBtn.addEventListener("click", function(){
 
     const product = {
         name: "HCG®",
-        price: "$" + packageSelect.value,
+        price: Number(packageSelect.value),
         dose: "5000iu",
         package: packageSelect.options[packageSelect.selectedIndex].text,
         quantity: quantity,

@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Retatrutide | Transcend Performance</title>
-<link rel="stylesheet" href="styles.css">
 
 <style>
 body{
@@ -78,6 +77,8 @@ body{
 
 .cart-icon{
     position:relative;
+    color:white;
+    text-decoration:none;
 }
 
 .cart-icon small{
@@ -210,18 +211,16 @@ select option{
     background:rgba(255,255,255,.12);
     color:white;
     font-size:1.1rem;
-}
-
-.box-btn{
-    height:48px;
-    padding:0 18px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.12);
-    color:white;
     cursor:pointer;
 }
-    .price-display{
+
+.quantity-box span{
+    min-width:35px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.price-display{
     height:48px;
     display:flex;
     align-items:center;
@@ -302,44 +301,7 @@ details{
     display:block;
     margin-bottom:8px;
 }
-.footer{
-    margin-top:60px;
-    padding:40px 20px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.12);
-    background:rgba(0,0,0,.15);
-    backdrop-filter:blur(10px);
-}
 
-.footer-logo{
-    font-size:1.3rem;
-    font-weight:bold;
-    letter-spacing:2px;
-    margin-bottom:15px;
-}
-
-.footer-links{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin-bottom:15px;
-    flex-wrap:wrap;
-}
-
-.footer-links a{
-    color:white;
-    text-decoration:none;
-    opacity:.8;
-}
-
-.footer-links a:hover{
-    opacity:1;
-}
-
-.footer-text{
-    opacity:.6;
-    font-size:.9rem;
-}
 @media(max-width:900px){
     .product-container{
         flex-direction:column;
@@ -391,7 +353,7 @@ details{
 
     <div class="header-icons">
         <span>⌕</span>
-<a href="cart.html" class="cart-icon">🛒<small>0</small></a>
+        <a href="cart.html" class="cart-icon">🛒<small>0</small></a>
     </div>
 </header>
 
@@ -428,42 +390,42 @@ details{
         <li>Convenient 10mg multi-dose vial</li>
     </ul>
 
-   <div class="product-controls">
+    <div class="product-controls">
 
-   <div class="selector">
-  <label>Price</label>
-  <div class="price-display" id="price">$65</div>
-</div>
+        <div class="selector">
+            <label>Price</label>
+            <div class="price-display" id="price">$65</div>
+        </div>
 
-<div class="selector">
-  <label>Dose</label>
-  <select>
-    <option>10mg</option>
-  </select>
-</div>
+        <div class="selector">
+            <label>Dose</label>
+            <select id="doseSelect">
+                <option value="10mg">10mg</option>
+            </select>
+        </div>
 
-<div class="selector">
-  <label>Package</label>
-  <select id="package-select">
-    <option value="65">Single Vial</option>
-    <option value="390">Box of 10</option>
-  </select>
-</div>
+        <div class="selector">
+            <label>Package</label>
+            <select id="packageSelect">
+                <option value="65">Single Vial</option>
+                <option value="390">Box of 10</option>
+            </select>
+        </div>
 
-<div class="quantity-wrap">
-  <label>Quantity</label>
-  <div class="quantity-box">
-    <button>-</button>
-    <span>1</span>
-    <button>+</button>
-  </div>
-</div>
+        <div class="quantity-wrap">
+            <label>Quantity</label>
+            <div class="quantity-box">
+                <button id="minusBtn" type="button">-</button>
+                <span id="quantity">1</span>
+                <button id="plusBtn" type="button">+</button>
+            </div>
+        </div>
 
-</div>
+    </div>
 
     <div class="cart-row">
-        <button class="add-cart">🛒 Add To Cart</button>
-        <button class="favorite-btn">♡</button>
+        <button class="add-cart" id="addToCartBtn" type="button">🛒 Add To Cart</button>
+        <button class="favorite-btn" type="button">♡</button>
     </div>
 
 </div>
@@ -516,151 +478,83 @@ details{
 </section>
 
 </main>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const minusBtn = document.getElementById("minusBtn");
-  const plusBtn = document.getElementById("plusBtn");
-  const quantityDisplay = document.getElementById("quantity");
-  const packageSelect = document.getElementById("packageSelect");
-  const addToCartBtn = document.getElementById("addToCartBtn");
+    const minusBtn = document.getElementById("minusBtn");
+    const plusBtn = document.getElementById("plusBtn");
+    const quantityDisplay = document.getElementById("quantity");
+    const packageSelect = document.getElementById("packageSelect");
+    const priceDisplay = document.getElementById("price");
+    const addToCartBtn = document.getElementById("addToCartBtn");
 
-  let quantity = 1;
+    let quantity = 1;
 
-  const prices = {
-    single: 80,
-    box: 600
-  };
-
-  function updateQuantity() {
-    quantityDisplay.textContent = quantity;
-  }
-
-  if (minusBtn) {
-    minusBtn.addEventListener("click", function () {
-      if (quantity > 1) {
-        quantity--;
-        updateQuantity();
-      }
-    });
-  }
-
-  if (plusBtn) {
-    plusBtn.addEventListener("click", function () {
-      if (quantity < 9) {
-        quantity++;
-        updateQuantity();
-      }
-    });
-  }
-
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", function () {
-      const selectedPackage = packageSelect ? packageSelect.value : "single";
-      const price = prices[selectedPackage] || prices.single;
-
-      const item = {
-        name: "Retatrutide",
-        package: selectedPackage === "box" ? "Box of 10" : "Single Vial",
-        price: price,
-        quantity: quantity,
-        image: "red-cap-retatrutide-bg-removed.png"
-      };
-
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(item);
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      alert("Added to cart");
-      updateCartCount();
-    });
-  }
-
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
-
-    const cartCount = document.querySelector(".cart-icon small");
-    if (cartCount) {
-      cartCount.textContent = count;
+    function updatePrice() {
+        const price = Number(packageSelect.value);
+        priceDisplay.textContent = "$" + price;
     }
-  }
 
-  updateQuantity();
-  updateCartCount();
+    function updateQuantity() {
+        quantityDisplay.textContent = quantity;
+    }
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const count = cart.reduce(function (total, item) {
+            return total + Number(item.quantity || 1);
+        }, 0);
+
+        const cartCount = document.querySelector(".cart-icon small");
+        if (cartCount) {
+            cartCount.textContent = count;
+        }
+    }
+
+    minusBtn.addEventListener("click", function () {
+        if (quantity > 1) {
+            quantity--;
+            updateQuantity();
+        }
+    });
+
+    plusBtn.addEventListener("click", function () {
+        if (quantity < 9) {
+            quantity++;
+            updateQuantity();
+        }
+    });
+
+    packageSelect.addEventListener("change", function () {
+        updatePrice();
+    });
+
+    addToCartBtn.addEventListener("click", function () {
+        const selectedText = packageSelect.options[packageSelect.selectedIndex].text;
+        const price = Number(packageSelect.value);
+
+        const item = {
+            name: "Retatrutide",
+            dose: "10mg",
+            package: selectedText,
+            price: price,
+            quantity: quantity,
+            image: "red-cap-reta-bg-removed.png"
+        };
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(item);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        updateCartCount();
+        alert("Retatrutide added to cart");
+    });
+
+    updatePrice();
+    updateQuantity();
+    updateCartCount();
 });
 </script>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const minusBtn = document.getElementById("minusBtn");
-  const plusBtn = document.getElementById("plusBtn");
-  const quantityDisplay = document.getElementById("quantity");
-  const packageSelect = document.getElementById("packageSelect");
-  const addToCartBtn = document.getElementById("addToCartBtn");
 
-  let quantity = 1;
-
-  const prices = {
-    single: 80,
-    box: 600
-  };
-
-  function updateQuantity() {
-    quantityDisplay.textContent = quantity;
-  }
-
-  if (minusBtn) {
-    minusBtn.addEventListener("click", function () {
-      if (quantity > 1) {
-        quantity--;
-        updateQuantity();
-      }
-    });
-  }
-
-  if (plusBtn) {
-    plusBtn.addEventListener("click", function () {
-      if (quantity < 9) {
-        quantity++;
-        updateQuantity();
-      }
-    });
-  }
-
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", function () {
-      const selectedPackage = packageSelect ? packageSelect.value : "single";
-      const price = prices[selectedPackage] || prices.single;
-
-      const item = {
-        name: "Retatrutide",
-        package: selectedPackage === "box" ? "Box of 10" : "Single Vial",
-        price: price,
-        quantity: quantity,
-        image: "red-cap-retatrutide-bg-removed.png"
-      };
-
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(item);
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      alert("Added to cart");
-      updateCartCount();
-    });
-  }
-
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
-
-    const cartCount = document.querySelector(".cart-icon small");
-    if (cartCount) {
-      cartCount.textContent = count;
-    }
-  }
-
-  updateQuantity();
-  updateCartCount();
-});
-</script>
 </body>
 </html>

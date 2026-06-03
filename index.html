@@ -677,6 +677,41 @@ nav a:hover{
     font-size:23px;
   }
 }
+   /* CLEAN CART-STYLE NAV HOVER FIX */
+
+.site-nav a,
+nav a{
+  color:#fff6df !important;
+  background:none !important;
+  -webkit-text-fill-color:#fff6df !important;
+  text-shadow:none !important;
+  filter:none !important;
+  transition:all .22s ease !important;
+}
+
+.site-nav a:hover,
+nav a:hover{
+  background:linear-gradient(90deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+
+  text-shadow:none !important;
+  filter:
+    drop-shadow(0 0 2px rgba(255,77,255,.65))
+    drop-shadow(0 0 4px rgba(0,191,255,.45)) !important;
+
+  transform:translateY(-1px) !important;
+}
+
+/* Keep cart count readable */
+#cart-count{
+  -webkit-text-fill-color:white !important;
+  color:white !important;
+  background:linear-gradient(135deg,#ff4dff,#a855f7) !important;
+  text-shadow:none !important;
+  filter:none !important;
+}
 </style>
 </head>
 

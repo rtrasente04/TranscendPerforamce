@@ -460,24 +460,7 @@ nav a:hover{
   position:relative;
 }
 
-.cart-link::after{
-  content:"0";
-  position:absolute;
-  top:-13px;
-  right:-15px;
-  min-width:20px;
-  height:20px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#ff4dff,#a855f7);
-  color:white;
-  font-size:12px;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 12px rgba(255,77,255,.9);
-}
-
+ 
 @media(max-width:700px){
   nav{
     gap:15px;
@@ -533,6 +516,29 @@ nav a:hover{
   background-clip:text;
   filter:drop-shadow(0 0 8px rgba(255,77,255,.6));
 }
+   .cart-link{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+#cart-count{
+  position:absolute;
+  top:-13px;
+  right:-16px;
+  min-width:20px;
+  height:20px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ff4dff,#a855f7);
+  color:white;
+  font-size:12px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 12px rgba(255,77,255,.9);
+}
 </style>
 </head>
 
@@ -549,7 +555,9 @@ nav a:hover{
     <a href="#products">PRODUCTS</a>
     <a href="#about">ABOUT US</a>
     <a href="#contact">CONTACT</a>
-    <a href="cart.html" class="cart-link">🛒</a>
+    <a href="cart.html" class="cart-link">
+  🛒 <span id="cart-count">0</span>
+</a>
   </nav>
 </header>
 
@@ -664,5 +672,18 @@ because excellence is never accidental.
   <footer>
     © 2026 Transcend Performance. Powered by TranscendRX.
   </footer>
+  <script>
+  function updateCartCount(){
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + (Number(item.quantity) || 1), 0);
+    const cartCount = document.getElementById("cart-count");
+
+    if(cartCount){
+      cartCount.textContent = count;
+    }
+  }
+
+  updateCartCount();
+</script>
 </body>
 </html>

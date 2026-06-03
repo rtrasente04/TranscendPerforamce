@@ -225,7 +225,7 @@ section{
   font-weight:600;
 }
 
-.cards{
+s{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:24px;
@@ -234,9 +234,9 @@ section{
 .card{
   background:linear-gradient(
   135deg,
-  rgba(255,77,255,.18) 0%,
-  rgba(184,92,255,.14) 45%,
-  rgba(0,191,255,.16) 100%
+  #ff4dff 0%,
+  #b85cff 45%,
+  #00bfff 100%
 );
   border-radius:28px;
   padding:36px;
@@ -249,7 +249,7 @@ backdrop-filter:blur(12px);
 }
 
 .card span{
-  color:#d946ef;
+  color:white;
   font-weight:900;
   letter-spacing:1px;
   font-size:14px;
@@ -259,15 +259,15 @@ backdrop-filter:blur(12px);
   margin-top:16px;
   margin-bottom:14px;
   font-size:32px;
-  color:#111827;
+  color:white;
   font-weight:900;
 }
 
 .card p{
-  color:#4b5563;
-  line-height:1.8;
-  font-size:18px;
-  font-weight:600;
+    color:rgba(255,255,255,.92);
+    line-height:1.8;
+    font-size:18px;
+    font-weight:600;
 }
 
 .contact-box{
@@ -909,18 +909,11 @@ nav {
       rgba(3,5,18,.72),
       rgba(3,5,18,.82)
     ),
-    url("images/website-bg.png");
+    url("images/website2-bg.png");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-#products,
-#about,
-#contact {
-  background:
-    linear-gradient(rgba(3,5,18,.74), rgba(3,5,18,.82)),
-    url("images/website-bg.png") center top / cover no-repeat;
 }
 </style>
 </head>

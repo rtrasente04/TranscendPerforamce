@@ -490,6 +490,94 @@ body{
     font-size:1.1rem;
   }
 }
+
+.site-header{
+  width:100%;
+  padding:18px 6% !important;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(5,6,25,.94);
+  border-bottom:1px solid rgba(217,70,239,.65);
+  box-shadow:0 0 28px rgba(168,85,247,.25);
+}
+
+.logo,
+.brand,
+.header-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:42px !important;
+  height:42px !important;
+  border-radius:12px;
+  font-size:27px !important;
+}
+
+.logo-text,
+.brand-text{
+  font-size:22px !important;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.nav-links,
+.site-nav,
+nav{
+  display:flex;
+  align-items:center;
+  gap:34px !important;
+}
+
+.nav-links a,
+.site-nav a,
+nav a{
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:16px !important;
+  font-weight:900 !important;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  color:#fff6df;
+  text-decoration:none;
+  text-shadow:none !important;
+  transition:all .25s ease;
+}
+
+.nav-links a:hover,
+.site-nav a:hover,
+nav a:hover{
+  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 8px rgba(255,77,255,.6));
+  transform:translateY(-2px);
+}
+
+@media(max-width:700px){
+  .site-header{
+    padding:14px 5% !important;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .nav-links,
+  .site-nav,
+  nav{
+    gap:15px !important;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .nav-links a,
+  .site-nav a,
+  nav a{
+    font-size:13px !important;
+  }
+}
 </style>
 </head>
 

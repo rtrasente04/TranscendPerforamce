@@ -63,11 +63,14 @@ header{
   box-shadow:0 0 18px rgba(255,77,255,.8);
 }
 
-nav{
-  display:flex;
-  align-items:center;
-  gap:34px;
-}
+<nav>
+  <a href="index.html">HOME</a>
+  <a href="products.html#peptides">PEPTIDES</a>
+  <a href="#products">PRODUCTS</a>
+  <a href="#about">ABOUT US</a>
+  <a href="#contact">CONTACT</a>
+  <a href="cart.html" class="cart-link">🛒</a>
+</nav>
 
 nav a{
   text-decoration:none;
@@ -422,6 +425,69 @@ nav a:hover {
 
 .secondary:hover {
   border-color: rgba(255,77,255,0.95);
+}
+   nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#fff6df;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  transition:all .25s ease;
+  text-shadow:
+    0 0 5px rgba(255,255,255,.8),
+    0 0 12px rgba(255,255,255,.35);
+}
+
+nav a:hover{
+  color:#ffffff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,1),
+    0 0 12px rgba(255,77,255,.95),
+    0 0 24px rgba(168,85,247,.85);
+  transform:translateY(-2px);
+}
+
+.cart-link{
+  font-size:19px;
+  position:relative;
+}
+
+.cart-link::after{
+  content:"0";
+  position:absolute;
+  top:-13px;
+  right:-15px;
+  min-width:20px;
+  height:20px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ff4dff,#a855f7);
+  color:white;
+  font-size:12px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 12px rgba(255,77,255,.9);
+}
+
+@media(max-width:700px){
+  nav{
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{
+    font-size:13px;
+  }
 }
 </style>
 </head>

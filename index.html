@@ -13,9 +13,21 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 
+:root{
+  --cream:#fff6df;
+  --soft:#f3eefc;
+  --pink:#ff4dff;
+  --purple:#b85cff;
+  --blue:#00bfff;
+  --dark:#050619;
+  --panel:rgba(8,10,35,.52);
+  --border:rgba(255,255,255,.26);
+  --gradient:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+}
+
 body{
   font-family:'Cormorant Garamond', serif;
-  background:white;
+  background:#050619;
   color:#0f172a;
   overflow-x:hidden;
 }
@@ -51,7 +63,7 @@ body{
   border-radius:12px;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,#ff3fce,#2f70ff);
+  background:var(--gradient);
   font-family:Georgia,serif;
   font-size:27px;
   font-weight:bold;
@@ -91,7 +103,7 @@ body{
 }
 
 .nav-links a:hover{
-  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  background:var(--gradient);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
@@ -120,16 +132,15 @@ body{
   -webkit-text-fill-color:white;
 }
 
-/* HERO - SECTION 1 KEPT */
+/* HERO */
 .hero{
   position:relative;
-  min-height:115vh;
-  padding-bottom:180px;
+  min-height:112vh;
   display:flex;
   justify-content:flex-start;
   align-items:center;
   text-align:left;
-  padding:120px 20px 180px;
+  padding:120px 20px 170px;
   overflow:hidden;
   background-image:
     linear-gradient(90deg,rgba(5,5,20,.88) 0%,rgba(5,5,20,.55) 38%,rgba(5,5,20,.15) 100%),
@@ -137,6 +148,17 @@ body{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:170px;
+  background:linear-gradient(to bottom,rgba(5,6,25,0),rgba(5,6,25,.94));
+  pointer-events:none;
 }
 
 .hero-content{
@@ -180,7 +202,7 @@ h1{
   line-height:.9;
   font-weight:900;
   letter-spacing:-1px;
-  color:#fff6df;
+  color:var(--cream);
   text-shadow:
     0 0 10px rgba(255,255,255,.15),
     0 0 30px rgba(192,132,252,.22),
@@ -210,7 +232,7 @@ h1{
 }
 
 .primary{
-  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  background:var(--gradient);
   color:white;
   box-shadow:0 0 20px rgba(217,70,239,.35),0 0 50px rgba(168,85,247,.25);
 }
@@ -222,7 +244,7 @@ h1{
 }
 
 .btn:hover{
-  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  background:var(--gradient);
   color:white;
   box-shadow:
     0 0 12px rgba(255,77,255,.85),
@@ -231,55 +253,71 @@ h1{
   transform:translateY(-3px) scale(1.03);
 }
 
-/* SHARED SECTION STYLE */
-.section-bg{
-    position:relative;
-    margin-top:-90px;
-    padding:140px 8% 110px;
-    background:
-        linear-gradient(rgba(5,6,25,.40),rgba(5,6,25,.50)),
-        url("images/website3-bg.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    border-radius:0;
+/* PAGE SECTIONS */
+.site-section{
+  position:relative;
+  padding:95px 6%;
+  background:
+    linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.04)),
+    url("images/website3-bg.png");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center center;
 }
 
-.section-bg::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:1px;
-  background:rgba(255,255,255,.28);
+.section-panel{
+  position:relative;
+  z-index:2;
+  max-width:1240px;
+  margin:0 auto;
+  padding:68px;
+  border-radius:34px;
+  background:rgba(7,9,32,.34);
+  border:1px solid rgba(255,255,255,.30);
+  box-shadow:
+    0 0 0 1px rgba(255,77,255,.12),
+    0 0 36px rgba(168,85,247,.20),
+    0 26px 90px rgba(0,0,0,.20);
+  backdrop-filter:blur(10px);
 }
 
 .section-header{
   text-align:center;
   max-width:820px;
-  margin:0 auto 60px;
+  margin:0 auto 54px;
   position:relative;
   z-index:2;
 }
 
-.section-header h2{
+.section-header h2,
+.gradient-title{
   font-family:'Cormorant Garamond', serif;
-  font-size:56px;
+  font-size:clamp(44px,5vw,66px);
+  line-height:1;
   font-weight:900;
   margin-bottom:18px;
-  color:#fff6df;
-  text-shadow:0 0 18px rgba(255,255,255,.18);
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 14px rgba(255,255,255,.20));
 }
 
 .section-header p{
-  color:#f3eefc;
-  line-height:1.8;
+  color:#ffffff;
+  line-height:1.75;
   font-size:21px;
-  font-weight:600;
+  font-weight:700;
+  text-shadow:0 0 12px rgba(0,0,0,.35);
 }
 
-/* SECTION 2 */
+/* PRODUCTS */
+#products{
+  margin-top:-80px;
+  padding-top:120px;
+  background-position:center 42%;
+}
+
 .cards{
   position:relative;
   z-index:2;
@@ -289,196 +327,239 @@ h1{
 }
 
 .card{
-  min-height:255px;
-  background:rgba(255,255,255,.09);
-  border-radius:30px;
-  padding:34px;
-  border:1px solid rgba(255,255,255,.24);
-  box-shadow:0 20px 60px rgba(0,0,0,.22);
-  backdrop-filter:blur(16px);
+  min-height:245px;
+  background:rgba(255,255,255,.12);
+  border-radius:28px;
+  padding:32px;
+  border:1px solid rgba(255,255,255,.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 18px 55px rgba(0,0,0,.20);
+  backdrop-filter:blur(18px);
   transition:all .3s ease;
   text-decoration:none;
   color:white;
+  overflow:hidden;
+  position:relative;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--gradient);
+  opacity:0;
+  transition:opacity .3s ease;
+  z-index:-1;
+}
+
+.card:hover::before{
+  opacity:.88;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:rgba(255,255,255,.72);
+  box-shadow:
+    0 0 14px rgba(255,77,255,.55),
+    0 0 34px rgba(0,191,255,.35),
+    0 28px 80px rgba(0,0,0,.28);
 }
 
 .card span{
-  width:48px;
-  height:48px;
+  width:46px;
+  height:46px;
   display:grid;
   place-items:center;
   border-radius:50%;
-  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  background:rgba(5,6,25,.82);
+  border:1px solid rgba(255,255,255,.40);
   color:white;
   font-family:Arial, Helvetica, sans-serif;
   font-weight:900;
-  font-size:14px;
-  box-shadow:0 0 22px rgba(255,77,255,.45);
+  font-size:13px;
+  box-shadow:0 0 18px rgba(0,191,255,.24);
   margin-bottom:22px;
 }
 
 .card h3{
   margin-bottom:14px;
-  font-size:32px;
+  font-size:31px;
   line-height:1.05;
-  color:#fff6df;
+  color:var(--cream);
   font-weight:900;
 }
 
 .card p{
-  color:rgba(255,255,255,.9);
-  line-height:1.75;
+  color:rgba(255,255,255,.92);
+  line-height:1.65;
   font-size:18px;
-  font-weight:600;
+  font-weight:650;
 }
 
-.card:hover{
-  transform:translateY(-8px) scale(1.02);
-  border-color:rgba(255,77,255,.75);
-  box-shadow:
-    0 0 14px rgba(255,77,255,.45),
-    0 0 30px rgba(0,191,255,.28),
-    0 26px 80px rgba(0,0,0,.28);
+/* ABOUT */
+#about{
+  background-position:center center;
 }
 
-/* SECTION 3 */
 .about-layout{
   position:relative;
   z-index:2;
-  max-width:1180px;
-  margin:0 auto;
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:50px;
+  grid-template-columns:1.05fr .95fr;
+  gap:48px;
   align-items:center;
 }
 
 .about-copy h2{
-  font-size:58px;
+  font-size:clamp(44px,5vw,62px);
   line-height:1;
-  color:#fff6df;
   margin-bottom:24px;
   font-weight:900;
 }
 
 .about-copy p{
-  color:#f3eefc;
-  font-size:21px;
-  line-height:1.85;
-  font-weight:600;
+  color:#ffffff;
+  font-size:20px;
+  line-height:1.72;
+  font-weight:650;
+  text-shadow:0 0 12px rgba(0,0,0,.32);
 }
 
 .about-visual{
-  min-height:420px;
+  min-height:430px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
 .about-visual img{
-  width:85%;
-  max-width:360px;
-  filter:drop-shadow(0 0 36px rgba(255,77,255,.45));
+  width:88%;
+  max-width:390px;
+  filter:
+    drop-shadow(0 0 20px rgba(255,77,255,.42))
+    drop-shadow(0 0 45px rgba(0,191,255,.28));
 }
 
 .feature-grid{
   position:relative;
   z-index:2;
-  max-width:1180px;
-  margin:70px auto 0;
+  margin:58px auto 0;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:18px;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
 .feature{
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:22px;
-  padding:24px 18px;
-  text-align:center;
-  color:#fff6df;
-  font-weight:900;
-  font-size:18px;
-  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:24px;
+  padding:30px 24px;
+  color:#fff;
+  backdrop-filter:blur(16px);
   box-shadow:0 18px 50px rgba(0,0,0,.18);
+  transition:all .3s ease;
 }
 
-/* SECTION 4 */
-.contact-section{
-  position:relative;
-  padding:110px 8%;
+.feature:hover{
+  transform:translateY(-6px);
+  background:linear-gradient(135deg,rgba(255,77,255,.72),rgba(0,191,255,.62));
+  box-shadow:
+    0 0 18px rgba(255,77,255,.36),
+    0 0 34px rgba(0,191,255,.22);
+}
+
+.feature h3{
+  font-size:28px;
+  color:var(--cream);
+  margin-bottom:10px;
+  font-weight:900;
+}
+
+.feature p{
+  font-size:17px;
+  line-height:1.6;
+  color:rgba(255,255,255,.9);
+  font-weight:650;
+}
+
+/* CONTACT */
+#contact{
   background:
-    linear-gradient(rgba(5,6,25,.84),rgba(5,6,25,.94)),
+    linear-gradient(rgba(5,6,25,.46),rgba(5,6,25,.60)),
     url("images/website3-bg.png");
   background-size:cover;
-  background-position:center;
+  background-position:center center;
   background-repeat:no-repeat;
-}
-
-.contact-section::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:1px;
-  background:rgba(255,255,255,.28);
 }
 
 .contact-box{
   position:relative;
   z-index:2;
-  max-width:880px;
+  max-width:920px;
   margin:auto;
   padding:64px;
-  border-radius:38px;
-  background:rgba(255,255,255,.08);
+  border-radius:34px;
+  background:rgba(8,10,35,.46);
   color:white;
-  border:1px solid rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.30);
   backdrop-filter:blur(18px);
   box-shadow:
-    0 0 35px rgba(255,77,255,.16),
-    0 30px 90px rgba(0,0,0,.35);
+    0 0 35px rgba(255,77,255,.18),
+    0 30px 90px rgba(0,0,0,.28);
+  text-align:center;
+}
+
+.contact-logo{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  margin:0 auto 20px;
+  display:block;
+  filter:drop-shadow(0 0 18px rgba(184,92,255,.45));
 }
 
 .contact-box h2{
-  color:#fff6df;
   font-size:56px;
   margin-bottom:20px;
-  text-align:center;
   font-weight:900;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 
 .contact-box p{
   color:#f3eefc;
-  text-align:center;
-  line-height:1.8;
+  line-height:1.75;
   font-size:21px;
-  font-weight:600;
+  font-weight:650;
 }
 
 .contact-links{
   margin-top:34px;
+  display:grid;
+  gap:12px;
 }
 
 .contact-box a{
-  color:#d946ef;
+  color:#ff4dff;
   font-weight:900;
   text-decoration:none;
   transition:all .25s ease;
 }
 
 .contact-box a:hover{
-  background:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+  background:var(--gradient);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
   filter:drop-shadow(0 0 8px rgba(255,77,255,.6));
 }
 
-/* CURRENT FOOTER KEPT */
+/* FOOTER */
 .disclaimer{
-  padding:40px 8%;
+  padding:34px 8%;
   text-align:center;
   font-size:14px;
   color:#4b5563;
@@ -487,11 +568,19 @@ h1{
 }
 
 footer{
-  padding:30px;
+  padding:28px;
   text-align:center;
   color:#64748b;
   border-top:1px solid #dce7f2;
   background:white;
+}
+
+.footer-logo{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 12px;
 }
 
 /* TABLET */
@@ -532,6 +621,26 @@ footer{
     white-space:nowrap;
   }
 
+  .hero{
+    min-height:850px;
+    background-position:center center;
+  }
+
+  .site-section{
+    padding:78px 5%;
+    background-position:center center;
+  }
+
+  #products{
+    margin-top:-60px;
+    padding-top:95px;
+    background-position:center center;
+  }
+
+  .section-panel{
+    padding:48px;
+  }
+
   .cards{
     grid-template-columns:repeat(2,1fr);
   }
@@ -541,8 +650,12 @@ footer{
     text-align:center;
   }
 
+  .about-copy p{
+    margin:auto;
+  }
+
   .feature-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
   }
 }
 
@@ -564,12 +677,12 @@ footer{
     font-size:13px;
   }
 
- .hero {
-  min-height: 720px;
-  padding-top: 150px;
-  padding-bottom: 140px;
-  background-position: center top;
-}
+  .hero{
+    min-height:760px;
+    padding-top:150px;
+    padding-bottom:135px;
+    background-position:center top;
+  }
 
   .hero-content{
     max-width:100%;
@@ -596,9 +709,21 @@ footer{
     padding:15px 24px;
   }
 
-  .section-bg,
-  .contact-section{
-    padding:80px 5%;
+  .site-section{
+    padding:64px 4%;
+    background-position:center top;
+  }
+
+  #products{
+    margin-top:-45px;
+    padding-top:70px;
+    background-position:center top;
+  }
+
+  .section-panel,
+  .contact-box{
+    padding:34px 22px;
+    border-radius:26px;
   }
 
   .section-header h2,
@@ -639,137 +764,6 @@ footer{
   .feature-grid{
     grid-template-columns:1fr;
   }
-
-  .contact-box{
-    padding:36px 24px;
-  }
-}
- #products{
-  margin-top:-120px;
-  padding-top:210px;
-  background:
-  linear-gradient(
-    rgba(5,5,20,.35),
-    rgba(15,10,55,.45)
-  ),
-  url("images/website3-bg.png") !important;
-  background-size:cover !important;
-  background-position:center 42% !important;
-  overflow:hidden;
-}
-/* make product section text cleaner and less bland */
-#products .section-header{
-  position:relative;
-  z-index:3;
-  margin-bottom:55px;
-}
-
-#products .section-header h2{
-  color:#fff6df;
-  font-size:62px;
-  text-shadow:
-    0 0 10px rgba(255,255,255,.28),
-    0 0 26px rgba(168,85,247,.35);
-}
-
-#products .section-header p{
-  max-width:780px;
-  margin:auto;
-  font-size:22px;
-  color:#ffffff;
-  text-shadow:0 0 12px rgba(0,0,0,.35);
-}
-
-/* card color changed to View Products gradient */
-.card{
-  background:
-    linear-gradient(135deg,rgba(255,77,255,.92) 0%,rgba(184,92,255,.9) 45%,rgba(0,191,255,.88) 100%) !important;
-  border:1px solid rgba(255,255,255,.38) !important;
-  box-shadow:
-    inset 0 0 35px rgba(255,255,255,.08),
-    0 20px 60px rgba(0,0,0,.25) !important;
-}
-
-/* better number circles */
-.card span{
-  background:rgba(5,6,25,.82) !important;
-  border:1px solid rgba(255,255,255,.48);
-  color:#ffffff !important;
-  box-shadow:
-    0 0 12px rgba(255,255,255,.35),
-    0 0 22px rgba(255,77,255,.65),
-    0 0 34px rgba(0,191,255,.45) !important;
-}
-
-/* keep the good highlight */
-.card:hover{
-  transform:translateY(-8px) scale(1.02) !important;
-  border-color:rgba(255,255,255,.85) !important;
-  box-shadow:
-    0 0 14px rgba(255,77,255,.75),
-    0 0 34px rgba(0,191,255,.45),
-    0 28px 80px rgba(0,0,0,.32) !important;
-}
-
-/* SECTION 3 closer to mock image */
-#about{
-  background:
-    linear-gradient(rgba(45,20,135,.34),rgba(0,70,170,.42)),
-    url("images/website3-bg.png") !important;
-  background-size:cover !important;
-  background-position:center center !important;
-  padding-top:90px !important;
-}
-
-.about-layout{
-  grid-template-columns:1.15fr .85fr !important;
-}
-
-.about-copy h2{
-  font-size:52px !important;
-  max-width:520px;
-}
-
-.about-copy h2 span{
-  background:linear-gradient(135deg,#ff4dff,#00bfff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.about-copy p{
-  max-width:650px;
-  font-size:19px !important;
-  line-height:1.7 !important;
-}
-
-.about-visual img{
-  max-width:330px !important;
-  filter:
-    drop-shadow(0 0 20px rgba(255,77,255,.55))
-    drop-shadow(0 0 45px rgba(0,191,255,.35)) !important;
-}
-
-.feature-grid{
-  background:rgba(5,6,25,.38);
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:28px;
-  padding:18px;
-  gap:0 !important;
-  backdrop-filter:blur(16px);
-  box-shadow:0 0 38px rgba(0,191,255,.18);
-}
-
-.feature{
-  background:transparent !important;
-  box-shadow:none !important;
-  border:none !important;
-  border-right:1px solid rgba(255,255,255,.18) !important;
-  border-radius:0 !important;
-}
-
-.feature:last-child{
-  border-right:none !important;
 }
 </style>
 </head>
@@ -817,82 +811,97 @@ footer{
   </div>
 </section>
 
-<section id="products" class="section-bg">
-  <div class="section-header">
-    <h2>Product Categories</h2>
-    <p>
-      A streamlined performance-focused experience built around clean presentation,
-      premium branding, and modern optimization culture.
-    </p>
-  </div>
-
-  <div class="cards">
-    <a class="card" href="products.html#favorites">
-      <span>01</span>
-      <h3>Client Favorites</h3>
-      <p>Most-requested products and top picks organized for quick browsing.</p>
-    </a>
-
-    <a class="card" href="products.html#peptides">
-      <span>02</span>
-      <h3>Peptides</h3>
-      <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
-    </a>
-
-    <a class="card" href="products.html#injectables">
-      <span>03</span>
-      <h3>Injectables / Oils</h3>
-      <p>Injectable product options organized with a cleaner premium browsing experience.</p>
-    </a>
-
-    <a class="card" href="products.html#orals">
-      <span>04</span>
-      <h3>Orals</h3>
-      <p>Oral product options listed separately from vial-based products.</p>
-    </a>
-  </div>
-</section>
-
-<section class="section-bg about" id="about">
-  <div class="about-layout">
-    <div class="about-copy">
-      <h2>Elevated Performance Starts Here.</h2>
+<section id="products" class="site-section">
+  <div class="section-panel">
+    <div class="section-header">
+      <h2>Product Categories</h2>
       <p>
-        Transcend Performance was created for individuals who demand more from their
-        health, recovery, and physical performance. By combining cutting-edge wellness
-        solutions with a refined, modern experience, we provide access to products
-        selected to support body composition, recovery, longevity, metabolic health,
-        and peak performance.
-        <br><br>
-        Built on the trusted identity of TranscendRX, our mission is simple: deliver
-        premium solutions, exceptional quality, and a seamless experience for those
-        committed to becoming their best. Every detail is designed with precision,
-        because excellence is never accidental.
+        A streamlined performance-focused experience built around clean presentation,
+        premium branding, and modern optimization culture.
       </p>
     </div>
 
-    <div class="about-visual">
-      <img src="images/red-cap-glow-bg-removed.png" alt="Transcend Performance vial">
-    </div>
-  </div>
+    <div class="cards">
+      <a class="card" href="products.html#favorites">
+        <span>01</span>
+        <h3>Client Favorites</h3>
+        <p>Most-requested products and top picks organized for quick browsing.</p>
+      </a>
 
-  <div class="feature-grid">
-    <div class="feature">Premium Sourcing</div>
-    <div class="feature">Modern Presentation</div>
-    <div class="feature">Performance Driven</div>
-    <div class="feature">Clean Experience</div>
-    <div class="feature">Built With Precision</div>
+      <a class="card" href="products.html#peptides">
+        <span>02</span>
+        <h3>Peptides</h3>
+        <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
+      </a>
+
+      <a class="card" href="products.html#injectables">
+        <span>03</span>
+        <h3>Injectables / Oils</h3>
+        <p>Injectable product options organized with a cleaner premium browsing experience.</p>
+      </a>
+
+      <a class="card" href="products.html#orals">
+        <span>04</span>
+        <h3>Orals</h3>
+        <p>Oral product options listed separately from vial-based products.</p>
+      </a>
+    </div>
   </div>
 </section>
 
-<section id="contact" class="contact-section">
+<section id="about" class="site-section">
+  <div class="section-panel">
+    <div class="about-layout">
+      <div class="about-copy">
+        <h2 class="gradient-title">Elevated Performance Starts Here.</h2>
+        <p>
+          Transcend Performance was created for individuals who demand more from their
+          health, recovery, and physical performance. By combining cutting-edge wellness
+          solutions with a refined, modern experience, we provide access to products
+          selected to support body composition, recovery, longevity, metabolic health,
+          and peak performance.
+          <br><br>
+          Built on the trusted identity of TranscendRX, our mission is simple: deliver
+          premium solutions, exceptional quality, and a seamless experience for those
+          committed to becoming their best. Every detail is designed with precision,
+          because excellence is never accidental.
+        </p>
+      </div>
+
+      <div class="about-visual">
+        <img src="images/white-cap-teste-bg-removed.png" alt="Transcend Performance vial">
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Premium Sourcing</h3>
+        <p>Products selected around quality, consistency, and a cleaner client experience.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Performance Focused</h3>
+        <p>A catalog built around optimization, recovery, body composition, and wellness goals.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Built With Precision</h3>
+        <p>Modern presentation, organized categories, and a polished browsing experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="site-section">
   <div class="contact-box">
+    <img class="contact-logo" src="images/transcend-t-logo.png" alt="Transcend logo">
+
     <h2>Get In Touch</h2>
 
     <p>
       Have questions about products, availability, or general inquiries?
-      We're here to help. Reach out directly through email or Instagram
-      and we'll get back to you as soon as possible.
+      Reach out directly through email or Instagram and we'll get back to you
+      as soon as possible.
     </p>
 
     <div class="contact-links">
@@ -919,6 +928,7 @@ footer{
 </div>
 
 <footer>
+  <img class="footer-logo" src="images/transcend-t-logo.png" alt="Transcend logo">
   © 2026 Transcend Performance. Powered by TranscendRX.
 </footer>
 

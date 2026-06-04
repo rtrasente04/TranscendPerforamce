@@ -396,6 +396,41 @@ h1{
   font-size:18px;
   font-weight:650;
 }
+.card-icon{
+    font-size:42px;
+    line-height:1;
+    margin:12px 0 18px;
+    color:#d46cff;
+    text-shadow:
+        0 0 10px rgba(212,108,255,.7),
+        0 0 20px rgba(0,195,255,.35);
+    transition:.3s ease;
+}
+
+.card-arrow{
+    position:absolute;
+    bottom:18px;
+    right:18px;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#d54fff,#4bc7ff);
+    color:#fff;
+    font-size:18px;
+    box-shadow:0 0 15px rgba(213,79,255,.4);
+    transition:.3s ease;
+}
+
+.card:hover .card-icon{
+    transform:scale(1.1);
+}
+
+.card:hover .card-arrow{
+    transform:translateX(4px);
+}
 
 /* ABOUT */
 #about{
@@ -821,31 +856,41 @@ footer{
       </p>
     </div>
 
-    <div class="cards">
-      <a class="card" href="products.html#favorites">
-        <span>01</span>
-        <h3>Client Favorites</h3>
-        <p>Most-requested products and top picks organized for quick browsing.</p>
-      </a>
+    <div class="category-grid">
 
-      <a class="card" href="products.html#peptides">
-        <span>02</span>
-        <h3>Peptides</h3>
-        <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
-      </a>
+  <a href="products.html#favorites" class="category-card">
+    <div class="category-number">01</div>
+    <i data-lucide="heart" class="category-icon"></i>
+    <h3>Client Favorites</h3>
+    <p>Top trusted products and top picks our clients love.</p>
+    <div class="category-arrow">→</div>
+  </a>
 
-      <a class="card" href="products.html#injectables">
-        <span>03</span>
-        <h3>Injectables / Oils</h3>
-        <p>Injectable product options organized with a cleaner premium browsing experience.</p>
-      </a>
+  <a href="products.html#peptides" class="category-card">
+    <div class="category-number">02</div>
+    <i data-lucide="atom" class="category-icon"></i>
+    <h3>Peptides</h3>
+    <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
+    <div class="category-arrow">→</div>
+  </a>
 
-      <a class="card" href="products.html#orals">
-        <span>04</span>
-        <h3>Orals</h3>
-        <p>Oral product options listed separately from vial-based products.</p>
-      </a>
-    </div>
+  <a href="products.html#injectables" class="category-card">
+    <div class="category-number">03</div>
+    <i data-lucide="syringe" class="category-icon"></i>
+    <h3>Injectables / Oils</h3>
+    <p>Injectable product options organized for easy browsing.</p>
+    <div class="category-arrow">→</div>
+  </a>
+
+  <a href="products.html#orals" class="category-card">
+    <div class="category-number">04</div>
+    <i data-lucide="pill" class="category-icon"></i>
+    <h3>Orals</h3>
+    <p>Oral product options listed and organized for easy browsing.</p>
+    <div class="category-arrow">→</div>
+  </a>
+
+</div>
   </div>
 </section>
 
@@ -945,6 +990,9 @@ function updateCartBadge(){
 
 updateCartBadge();
 </script>
-
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
 </body>
 </html>

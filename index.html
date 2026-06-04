@@ -242,7 +242,7 @@ h1{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    border-radius:55% 55% 0 0 / 8% 8% 0 0;
+    border-radius:0;
 }
 
 .section-bg::before{
@@ -654,27 +654,6 @@ footer{
   background-position:center top !important;
   overflow:hidden;
 }
-
-#products::after{
-  content:"";
-  position:absolute;
-  top:-95px;
-  left:-8%;
-  width:116%;
-  height:190px;
-  background:
-    linear-gradient(rgba(242,231,255,.82),rgba(190,145,255,.55)),
-    url("images/website2-bg.png");
-  background-size:cover;
-  background-position:center top;
-  border-bottom:2px solid rgba(255,255,255,.65);
-  border-radius:0 0 50% 50%;
-  box-shadow:
-    0 0 30px rgba(255,77,255,.45),
-    0 0 60px rgba(0,191,255,.25);
-  z-index:1;
-}
-
 /* make product section text cleaner and less bland */
 #products .section-header{
   position:relative;

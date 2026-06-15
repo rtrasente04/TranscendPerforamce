@@ -395,6 +395,18 @@
   <footer>
     © 2026 Transcend Performance. Powered by TranscendRX.
   </footer>
+<script>
+function updateCartBadge(){
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((total, item) => total + (Number(item.quantity) || 1), 0);
+  const badge = document.getElementById("cart-badge");
 
+  if(badge){
+    badge.textContent = count;
+  }
+}
+
+updateCartBadge();
+</script>
 </body>
 </html>

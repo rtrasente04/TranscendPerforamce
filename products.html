@@ -7,43 +7,125 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Ruwudu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Happy+Monkey&family=Ruwudu:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
 
     body{
-      font-family:'Ruwudu', serif;
-      background:white;
-      color:#111827;
-    }
+  font-family:'Cormorant Garamond', serif;
+  background:white;
+  color:#111827;
+  overflow-x:hidden;
+}
+    :root{
+  --cream:#fff6df;
+  --pink:#ff4dff;
+  --purple:#b85cff;
+  --blue:#00bfff;
+  --dark:#050619;
+  --gradient:linear-gradient(135deg,#ff4dff 0%,#b85cff 45%,#00bfff 100%);
+}
 
-    header{
-      width:100%;
-      padding:24px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:linear-gradient(135deg,rgba(10,10,15,.96),rgba(20,20,30,.94));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
+/* HEADER */
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 6%;
+  background:rgba(5,6,25,.94);
+  border-bottom:1px solid rgba(217,70,239,.65);
+  box-shadow:0 0 28px rgba(168,85,247,.25);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
 
-    .logo{
-      color:#e7e2f2;
-      font-weight:900;
-      letter-spacing:2px;
-      font-size:20px;
-      text-decoration:none;
-    }
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:white;
+}
 
-    nav a{
-      color:#b9b5c9;
-      text-decoration:none;
-      margin-left:28px;
-      font-weight:700;
-    }
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:var(--gradient);
+  font-family:Georgia,serif;
+  font-size:27px;
+  font-weight:bold;
+  box-shadow:0 0 20px rgba(188,69,255,.45);
+}
 
-    nav a:hover{color:#d946ef;}
+.logo-text{
+  font-family:Georgia,serif;
+  font-weight:bold;
+  letter-spacing:2px;
+  line-height:1.05;
+  font-size:1.45rem;
+  color:white;
+}
+
+.logo-text span{
+  display:block;
+  font-size:.68rem;
+  letter-spacing:4px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:34px;
+}
+
+.nav-links a{
+  color:#fff6df;
+  text-decoration:none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:900;
+  font-size:16px;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  transition:all .25s ease;
+}
+
+.nav-links a:hover{
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 8px rgba(255,77,255,.6));
+  transform:translateY(-2px);
+}
+
+.cart-link{
+  position:relative;
+  font-size:1.3rem;
+}
+
+.cart-badge{
+  position:absolute;
+  top:-10px;
+  right:-13px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#ff2f91,#7b2cff);
+  color:white;
+  font-size:.72rem;
+  font-weight:bold;
+  -webkit-text-fill-color:white;
+}
 
     .page-hero{
       padding:110px 8% 80px;
@@ -196,14 +278,24 @@
 
 <body>
 
-  <header>
-    <a class="logo" href="index.html">TRANSCEND PERFORMANCE</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="logo-wrap" href="index.html">
+    <div class="logo-icon">T</div>
+    <div class="logo-text">
+      TRANSCEND
+      <span>PERFORMANCE</span>
+    </div>
+  </a>
+
+  <nav class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="products.html#peptides">PEPTIDES</a>
+    <a href="products.html">PRODUCTS</a>
+    <a href="index.html#about">ABOUT US</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a class="cart-link" href="cart.html">🛒<small class="cart-badge" id="cart-badge">0</small></a>
+  </nav>
+</header>
 
   <section class="page-hero">
     <h1>Product Categories</h1>

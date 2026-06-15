@@ -468,14 +468,30 @@ h1{
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
 }
 
-.about-visual img{
+.main-vial{
   width:88%;
   max-width:390px;
+  position:relative;
+  z-index:2;
   filter:
     drop-shadow(0 0 20px rgba(255,77,255,.42))
     drop-shadow(0 0 45px rgba(0,191,255,.28));
+}
+
+.blur-vial{
+  position:absolute;
+  width:92%;
+  max-width:410px;
+  z-index:1;
+  opacity:.28;
+  filter:
+    blur(8px)
+    drop-shadow(0 0 30px rgba(255,77,255,.45))
+    drop-shadow(0 0 50px rgba(0,191,255,.35));
+  transform:translate(40px,-25px) rotate(8deg);
 }
 
 .feature-grid{
@@ -800,9 +816,14 @@ footer{
     margin-top:30px;
   }
 
-  .about-visual img{
+  .main-vial{
     max-width:280px;
-  }
+}
+
+.blur-vial{
+    max-width:295px;
+    transform:translate(24px,-14px) rotate(8deg);
+}
 
   .feature-grid{
     grid-template-columns:1fr;

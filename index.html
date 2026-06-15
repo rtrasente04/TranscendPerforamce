@@ -258,11 +258,13 @@ h1{
   position:relative;
   padding:95px 6%;
   background:
-    linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.04)),
-    url("images/website3-bg.png");
-  background-size:cover;
+    radial-gradient(circle at 12% 18%, rgba(255,77,255,.28), transparent 28%),
+    radial-gradient(circle at 88% 22%, rgba(0,191,255,.25), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(184,92,255,.22), transparent 38%),
+    linear-gradient(135deg,#050619 0%,#0b0d2f 45%,#130722 100%);
+  background-size:100% 100%;
   background-repeat:no-repeat;
-  background-position:center center;
+  overflow:hidden;
 }
 
 .section-panel{
@@ -662,16 +664,18 @@ footer{
   }
 
   .site-section{
-    padding:78px 5%;
-    background-position:center center;
-  }
+  padding:64px 4%;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,77,255,.30), transparent 34%),
+    radial-gradient(circle at 85% 28%, rgba(0,191,255,.26), transparent 36%),
+    radial-gradient(circle at 50% 100%, rgba(184,92,255,.24), transparent 45%),
+    linear-gradient(145deg,#050619 0%,#090d30 55%,#15071f 100%);
+}
 
-  #products{
-    margin-top:-60px;
-    padding-top:95px;
-    background-position:center center;
-  }
-
+#products{
+  margin-top:-45px;
+  padding-top:70px;
+}
   .section-panel{
     padding:48px;
   }
@@ -750,10 +754,14 @@ footer{
   }
 
   #products{
-    margin-top:-45px;
-    padding-top:70px;
-    background-position:center top;
-  }
+  margin-top:-80px;
+  padding-top:120px;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,77,255,.34), transparent 30%),
+    radial-gradient(circle at 90% 18%, rgba(0,191,255,.30), transparent 32%),
+    radial-gradient(circle at 50% 105%, rgba(184,92,255,.28), transparent 45%),
+    linear-gradient(135deg,#050619 0%,#0b1038 48%,#160822 100%);
+}
 
   .section-panel,
   .contact-box{

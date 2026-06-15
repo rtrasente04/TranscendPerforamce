@@ -856,28 +856,14 @@ footer{
     inset 0 1px 0 rgba(255,255,255,.25);
 }
 
-.category-number {
-  width: 68px;
-  height: 68px;
-  border-radius: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 800;
-  color: white;
-  background: linear-gradient(135deg, #ff3cac, #784ba0, #2b86ff);
-  box-shadow: 0 14px 30px rgba(80,80,255,.35);
-}
-
 .category-icon {
-  width: 44px;
-  height: 44px;
-  margin-top: 46px;
-  margin-bottom: 26px;
-  stroke: #d8c7ff;
-  stroke-width: 1.7;
-  filter: drop-shadow(0 0 12px rgba(180,120,255,.55));
+  width: 52px;
+  height: 52px;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  stroke: #f1e7ff;
+  stroke-width: 1.6;
+  filter: drop-shadow(0 0 14px rgba(180,120,255,.45));
 }
 
 .category-card h3 {
@@ -941,14 +927,14 @@ box-shadow:
   }
 
   .category-card {
-    min-height: 280px;
-    padding: 30px 26px;
-  }
+  position: relative;
+  min-height: 285px;
+  padding: 38px 28px 34px;
 
   .category-icon {
-    margin-top: 38px;
-  }
-
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
   .category-card h3 {
     font-size: 26px;
   }
@@ -1012,7 +998,6 @@ box-shadow:
     <div class="category-grid">
 
   <a href="products.html#favorites" class="category-card">
-    <div class="category-number">01</div>
     <i data-lucide="heart" class="category-icon"></i>
     <h3>Client Favorites</h3>
     <p>Top trusted products and top picks our clients love.</p>
@@ -1020,7 +1005,6 @@ box-shadow:
   </a>
 
   <a href="products.html#peptides" class="category-card">
-    <div class="category-number">02</div>
     <i data-lucide="atom" class="category-icon"></i>
     <h3>Peptides</h3>
     <p>Research products focused on performance, wellness, metabolic, and recovery pathways.</p>
@@ -1028,7 +1012,6 @@ box-shadow:
   </a>
 
   <a href="products.html#injectables" class="category-card">
-    <div class="category-number">03</div>
     <i data-lucide="syringe" class="category-icon"></i>
     <h3>Injectables / Oils</h3>
     <p>Injectable product options organized for easy browsing.</p>
@@ -1036,7 +1019,6 @@ box-shadow:
   </a>
 
   <a href="products.html#orals" class="category-card">
-    <div class="category-number">04</div>
     <i data-lucide="pill" class="category-icon"></i>
     <h3>Orals</h3>
     <p>Oral product options listed and organized for easy browsing.</p>

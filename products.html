@@ -263,15 +263,44 @@
     }
 
     @media(max-width:800px){
-      header{
-        flex-direction:column;
-        gap:18px;
-      }
 
-      nav a{
-        margin:0 10px;
-      }
-    }
+  .desktop-only{
+    display:none;
+  }
+
+  .site-header{
+    flex-direction:column;
+    align-items:center;
+    padding:16px 15px;
+  }
+
+  .logo-wrap{
+    margin-bottom:12px;
+  }
+
+  .nav-links{
+    width:100%;
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    gap:6px;
+  }
+
+  .nav-links a{
+    font-size:12px;
+    letter-spacing:.3px;
+  }
+
+  .logo-text{
+    font-size:1rem;
+  }
+
+  .logo-icon{
+    width:36px;
+    height:36px;
+    font-size:22px;
+  }
+}
   </style>
 </head>
 
@@ -290,7 +319,7 @@
     <a href="index.html">HOME</a>
     <a href="products.html#peptides">PEPTIDES</a>
     <a href="products.html">PRODUCTS</a>
-    <a href="index.html#about">ABOUT US</a>
+    <a class="desktop-only" href="index.html#about">ABOUT US</a>
     <a href="index.html#contact">CONTACT</a>
     <a class="cart-link" href="cart.html">🛒<small class="cart-badge" id="cart-badge">0</small></a>
   </nav>

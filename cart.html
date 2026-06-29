@@ -705,7 +705,7 @@ nav a:hover{
           <span id="cart-total">$0.00</span>
         </div>
 
-        <button class="checkout-btn" onclick="checkout()">🔒 Checkout</button>
+        <button class="checkout-btn" onclick="checkout()">💬 Checkout Through WhatsApp</button>
         <a class="continue-btn" href="products.html">← Continue Shopping</a>
 
         <div class="secure-note">🔐 Your order details stay private and secure.</div>
@@ -892,7 +892,40 @@ function clearCart(){
 }
 
 function checkout(){
-  alert("Checkout page coming soon. Contact Transcend Performance to complete your order.");
+  const cart = getCart();
+
+  if(cart.length === 0){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  const phoneNumber = "17472144738";
+
+  let total = 0;
+
+  let message = "Hello Transcend Performance, I would like to place an order inquiry:\n\n";
+
+  cart.forEach(function(item, index){
+    const price = Number(item.price || 0);
+    const quantity = Number(item.quantity || 1);
+    const itemTotal = price * quantity;
+    total += itemTotal;
+
+    message += `${index + 1}. ${item.name || "Product"}\n`;
+    message += `Dose: ${item.dose || "N/A"}\n`;
+    message += `Package: ${item.package || "Single Vial"}\n`;
+    message += `Quantity: ${quantity}\n`;
+    message += `Price: $${price.toFixed(2)}\n`;
+    message += `Line Total: $${itemTotal.toFixed(2)}\n\n`;
+  });
+
+  message += `Subtotal: $${total.toFixed(2)}\n`;
+  message += "Shipping: To be confirmed\n\n";
+  message += "Please confirm availability, shipping, and payment options.";
+
+  const whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappUrl, "_blank");
 }
 
 updateCartBadge();
